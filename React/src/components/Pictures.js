@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import './Header2.css';
+import './Pictures.css';
 
 
 import {
@@ -34,7 +34,7 @@ const items = [
 
 
 
-class Header2 extends Component {
+class Pictures extends Component {
 
 
 
@@ -96,7 +96,7 @@ class Header2 extends Component {
 
         return (
 
-            <div className="Header2">
+            <div className="Pictures">
 
                 
 
@@ -121,4 +121,4 @@ class Header2 extends Component {
 }
 
 
-export default Header2;
+export default Pictures;

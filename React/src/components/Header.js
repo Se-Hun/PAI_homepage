@@ -42,7 +42,7 @@ class Header extends Component {
                 <Navbar color="white" light expand="md">
 
 
-                    <NavbarBrand href="https://naver.com/">
+                    <NavbarBrand href="/">
                         <img src={logo} alt="logo" />
                     </NavbarBrand>                    
 
@@ -53,29 +53,29 @@ class Header extends Component {
 
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                                <NavLink href="/components/">About</NavLink>
+                                <NavLink href="/about/">About</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="/components/">Notice</NavLink>
+                                <NavLink href="/notice/">Notice</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="/components/">FreeBoard</NavLink>
+                                <NavLink href="/freeboard/">FreeBoard</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="/components/">Info</NavLink>
+                                <NavLink href="/info/">Info</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="/components/">Library</NavLink>
+                                <NavLink href="/library/">Library</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="/components/">Gallery</NavLink>
+                                <NavLink href="/gallery/">Gallery</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="/components/">Calendar</NavLink>
+                                <NavLink href="/calendar/">Calendar</NavLink>
                             </NavItem>
 
                             <NavItem>
-                                <NavLink href="https://github.com/reactstrap/reactstrap">Login</NavLink>
+                                <NavLink href="/login/">Login</NavLink>
                             </NavItem>
 
                            

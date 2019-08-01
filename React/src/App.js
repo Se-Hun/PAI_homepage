@@ -1,15 +1,38 @@
 
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from './components/Header';
-import Header2 from './components/Header2';
-import Grid from './containers/Grid';
-import Grid2 from './containers/Grid2';
 import Footer from './components/Footer';
 
+import Home from "./routes/Home";
+import About from "./routes/About";
+import Notice from "./routes/Notice";
+import FreeBoard from "./routes/FreeBoard";
+import Info from "./routes/Info";
+import Library from "./routes/Library";
+import Gallery from "./routes/Gallery";
+import Calendar from "./routes/Calendar";
+import Login from "./routes/Login";
 
 
-import './components/Header.css';
 
+
+
+const DefaultLayout = ({ component: Component, ...rest }) => {
+    return (
+        <Route {...rest} render={matchProps => (
+            <div className="DefaultLayout">
+                <div className="Header">
+                    <Header/>
+                </div>
+                <Component {...matchProps} />
+                <div className="Footer">
+                    <Footer/>
+                </div>
+            </div>
+        )} />
+    )
+};
 
 
 
@@ -20,46 +43,35 @@ class App extends Component {
    
     render() {
         return (
-
-            <div>
-
+            <Router>
                 <div>
-               
-                    <Header />
-
-                </div>
-
-                
-
-                <div>
-                
-                    <Header2 />
-
-                </div>
+                 
+                    <div>
+                        <Switch>
 
 
-                <div>
-                    <Grid />
-                </div>
+                            <DefaultLayout exact path="/" component={Home} />
+                            <DefaultLayout path="/about" component={About} />
+                            <DefaultLayout path="/notice" component={Notice} />
+                            <DefaultLayout path="/freeboard" component={FreeBoard} />
+                            <DefaultLayout path="/info" component={Info} />
+                            <DefaultLayout path="/library" component={Library} />
+                            <DefaultLayout path="/gallery" component={Gallery} />
+                            <DefaultLayout path="/calendar" component={Calendar} />
+                            <DefaultLayout path="/login" component={Login} />
 
+                        </Switch>
+                            
 
-
-                <div>
-                    <Grid2 />
-                </div>
-
-
-                <div>
-                    <Footer />
+                  </div>
 
 
                 </div>
-                
-                
-               
+            </Router>
+                    
 
-            </div>
-
+            
+            
            
 
         );
