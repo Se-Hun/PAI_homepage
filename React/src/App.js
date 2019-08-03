@@ -12,10 +12,11 @@ import Info from "./routes/Info";
 import Library from "./routes/Library";
 import Gallery from "./routes/Gallery";
 import Calendar from "./routes/Calendar";
-import Login from "./routes/Login";
 
-
-
+import Login from "./pages/Login";
+import Page404 from "./pages/Page404";
+import Page500 from "./pages/Page500";
+import Register from "./pages/Register";
 
 
 const DefaultLayout = ({ component: Component, ...rest }) => {
@@ -58,7 +59,11 @@ class App extends Component {
                             <DefaultLayout path="/library" component={Library} />
                             <DefaultLayout path="/gallery" component={Gallery} />
                             <DefaultLayout path="/calendar" component={Calendar} />
-                            <DefaultLayout path="/login" component={Login} />
+
+                            <Route exact path="/login" name="Login Page" component={Login} />
+                            <Route exact path="/page404" name="404 Page" component={Page404} />
+                            <Route exact path="/page500" name="500 Page" component={Page500} />
+                            <Route exact path="/Register" name="Register Page" component={Register} />
 
                         </Switch>
                             

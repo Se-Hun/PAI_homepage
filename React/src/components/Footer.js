@@ -11,7 +11,7 @@ const Footer = (props) => {
                 <hr/>
                 
                 <p>President : Junho, Won wnsghek31@naver.com</p>
-                <p>Vice President : Sehun, Heo gjtpgns@naver.com</p>
+                <p>Vice President : Sehun, Heo tpgns5247@gmail.com</p>
                
             </Jumbotron>
         </div>
