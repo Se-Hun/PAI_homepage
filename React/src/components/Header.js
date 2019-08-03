@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-//import {Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import './Header.css';
 import logo from './PaiLogo.PNG';
 import {
@@ -11,7 +11,9 @@ import {
     Nav,
     NavItem,
     NavLink,
-    Button
+    Button,
+    Row,
+    Col
 } from 'reactstrap';
 
 import { deleteTokens, isLoggedIn } from '../login/auth';
@@ -41,7 +43,6 @@ class Header extends Component {
         return (
 
             <div className="Header">
-
                 <Navbar color="white" light expand="md">
 
 
@@ -77,8 +78,11 @@ class Header extends Component {
                                 <NavLink href="/calendar/">Calendar</NavLink>
                             </NavItem>
 
-
                             <LogButton/>
+
+                            <div className="ml-3">
+                                {isLoggedIn() ? sessionStorage.getItem("username") + "님, 환영합니다." : ""}
+                            </div>
                             {/*<NavItem>*/}
                             {/*    <NavLink href="/login/">Login</NavLink>*/}
                             {/*</NavItem>*/}
@@ -87,7 +91,7 @@ class Header extends Component {
                         </Nav>
                     </Collapse>
                 </Navbar>
-              
+
 
             </div>
            
@@ -106,7 +110,9 @@ class LogButton extends Component {
 
     _signIn(e) {
         e.preventDefault()
-        window.location.replace("/login")
+        window.location.href = "/login" //뒤로가기 가능하게 하려면 이렇게 해야함!
+        //window.location.replace("/login")
+        //this.props.history.push("/")
     }
 
     render() {
