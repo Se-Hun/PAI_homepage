@@ -13,12 +13,18 @@ import {
   InputGroupText,
   Row
 } from 'reactstrap';
+
+import {Icon} from 'semantic-ui-react';
+//import Calendar from 'react-input-calendar'
+import DatePicker from 'react-date-picker';
+
 import { Redirect } from 'react-router-dom';
 import { isLoggedIn } from "../../login/auth";
 
+
 const options = [
-  { value: 'Annotator', label: 'Annotator' },
-  { value: 'Maintainer', label: 'Maintainer' },
+  { value: '남성', label: '남성' },
+  { value: '여성', label: '여성' },
 ]
 
 class Register extends Component {
@@ -29,9 +35,15 @@ class Register extends Component {
       userId : "",
       username : "",
       studentId : "",
+      birth_DateObject : new Date(), // Date 객체로 일단 다룸.
+      birth : "",
+      gender : "남성",
+      phonenumber : "",
+      major : "",
+      registrationData : "",
       password : "",
       repeat_password : "",
-      role : "",
+      role : "", // role은 admin이 정해주어야 한다. 그래서 처음에는 role이 공백문자로 들어감!
       //isCompleted : false
     }
   }
@@ -44,16 +56,39 @@ class Register extends Component {
       [name]: value
     });
 
-    if(name === "repeat_password") {
-      //this._checkRepeatPW()
+  }
+
+  _handleChangeDate = (date) => {
+    if(date === null) {
+      this.setState({
+        birth_DateObject : new Date(),
+        birth: ""
+      })
     }
+    else {
+      this.setState({
+        birth_DateObject: date,
+        birth: this._dateToString(date)
+      })
+    }
+  }
+
+  _dateToString = (dateObject) => {
+    var year = dateObject.getFullYear()
+    var month = dateObject.getMonth() + 1
+    var date = dateObject.getDate()
+    return year + "-" + month + "-" + date
   }
 
   _handleRegister = (event) => {
     event.preventDefault()
 
-    let url = "http://localhost:5000/register"
-    // let url = "http://168.188.128.40:5402/register"
+    this.setState({
+      registrationDate : this._dateToString(new Date)
+    })
+
+    //let url = "http://localhost:5000/register"
+    let url = "http://168.188.128.40:5402/register" // 연구실 서버임 => 잠깐만 이렇게 해두자!
     let formData  = new FormData() // dictionary 같은 역활을 하는 객체임. 하지만 보안상으로 정말 좋음!
     let data = this.state
     for(let name in data) {
@@ -105,16 +140,21 @@ class Register extends Component {
     }).catch(err => console.log(err))
   }
 
-  _validate = (userId, password, username, studentId, repeat_password) => {
+  _validate = (userId, password, username, studentId, repeat_password, birth, phonenumber, major) => {
   // true means invalid, so our conditions got reversed
-    var email_identifier = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+    var email_identifier = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/; // dkalskd@naver.com
+    var date_identifier =  /^(19|20)\d{2}-([1-9]|1[012])-([1-9]|[12][0-9]|3[0-1])$/; // 2013-02-11
+    var phonenumber_identifier = /^\d{3}-\d{3,4}-\d{4}$/; // 010-4444-3333
     return {
       userId: (userId.length === 0) || !(email_identifier.test(userId)),
       password: password.length === 0,
       username : username.length === 0,
       studentId : studentId.length === 0,
       repeat_password : repeat_password.length === 0,
-      difference : password !== repeat_password
+      difference : password !== repeat_password,
+      birth : (birth.length === 0) || !(date_identifier.test(birth)),
+      phonenumber : (phonenumber.length === 0) || !(phonenumber_identifier.test(phonenumber)),
+      major : major.length === 0
     };
   }
 
@@ -124,9 +164,15 @@ class Register extends Component {
     }
   }
 
+  _debug = (event) => {
+    event.preventDefault()
+    console.log(this.state)
+  }
+
   render() {
     const errors = this._validate(this.state.userId,
-      this.state.password, this.state.username, this.state.studentId, this.state.repeat_password);
+        this.state.password, this.state.username, this.state.studentId, this.state.repeat_password,
+        this.state.birth, this.state.phonenumber, this.state.major);
     const isDisabled = Object.keys(errors).some(x => errors[x]);
     // 어느 하나라도 칸이 비어있으면 true가 된다.
 
@@ -145,7 +191,9 @@ class Register extends Component {
                     <p className="text-muted">다음을 입력해주세요.</p>
                     <InputGroup className="mb-3">
                       <InputGroupAddon addonType="prepend">
-                        <InputGroupText>@</InputGroupText>
+                        <InputGroupText>
+                          <Icon name="at"/>
+                        </InputGroupText>
                       </InputGroupAddon>
                       <Input type="text"
                              name="userId"
@@ -157,7 +205,7 @@ class Register extends Component {
                     <InputGroup className="mb-3">
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>
-                          <i className="icon-user"></i>
+                          <Icon name="user"></Icon>
                         </InputGroupText>
                       </InputGroupAddon>
                       <Input type="text"
@@ -170,7 +218,7 @@ class Register extends Component {
                     <InputGroup className="mb-3">
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>
-                          <i className="icon-tag"></i>
+                          <Icon name="tag"/>
                         </InputGroupText>
                       </InputGroupAddon>
                       <Input type="text"
@@ -183,7 +231,33 @@ class Register extends Component {
                     <InputGroup className="mb-3">
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>
-                          <i className="icon-lock"></i>
+                          <Icon name="phone"></Icon>
+                        </InputGroupText>
+                      </InputGroupAddon>
+                      <Input type="text"
+                             name="phonenumber"
+                             placeholder="전화번호를 입력해주세요.(010-xxxx-xxxx)"
+                             autoComplete="phonenumber"
+                             value={this.state.phonenumber}
+                             onChange={this._handleChange}/>
+                    </InputGroup>
+                    <InputGroup className="mb-3">
+                      <InputGroupAddon addonType="prepend">
+                        <InputGroupText>
+                          <Icon name="pencil alternate"></Icon>
+                        </InputGroupText>
+                      </InputGroupAddon>
+                      <Input type="text"
+                             name="major"
+                             placeholder="전공을 입력해주세요."
+                             autoComplete="major"
+                             value={this.state.major}
+                             onChange={this._handleChange}/>
+                    </InputGroup>
+                    <InputGroup className="mb-3">
+                      <InputGroupAddon addonType="prepend">
+                        <InputGroupText>
+                          <Icon name="lock"></Icon>
                         </InputGroupText>
                       </InputGroupAddon>
                       <Input type="password"
@@ -196,7 +270,7 @@ class Register extends Component {
                     <InputGroup className="mb-4">
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>
-                          <i className="icon-lock"></i>
+                          <Icon name="lock"></Icon>
                         </InputGroupText>
                       </InputGroupAddon>
                       <Input type="password"
@@ -209,16 +283,27 @@ class Register extends Component {
                              {/*invalid = {this._checkRepeatPW}*/}
                     </InputGroup>
                     <InputGroup className="mb-4">
-                      <Input type="select" name="role" onChange={this._handleChange}>
-                      {options.map((option) => {
-                        return <option>{option["value"]}</option>
+                      <InputGroupText>성별을 선택해주세요.</InputGroupText>
+                      <Input type="select" name="gender" onChange={this._handleChange}>
+                      {options.map((option, index) => {
+                        return <option key={index}>{option["value"]}</option>
                       })}
                       </Input>
                     </InputGroup>
+                    <InputGroup className="mb-2">
+                      {/*<Calendar format='DD-MM-YYYY' date='4-12-2014' />*/}
+                    </InputGroup>
+                    <InputGroup className="mb-4">
+                      <InputGroupText>생년월일을 선택해주세요.</InputGroupText>
+                      <DatePicker onChange={this._handleChangeDate} name="birth" value={this.state.birth_DateObject} clearAriaLabel="Clear value"/>
+                    </InputGroup>
+                    {/*{this._handleChangeDate}*/}
+                    {/*this.state.birth_DateObject*/}
                     <Button color="warning"
                             block
                             disabled={isDisabled}
                             onClick={this._handleRegister}>계정 생성</Button>
+                    <Button onClick={this._debug}>Debug</Button>
                   </Form>
                 </CardBody>
                 {/*<CardFooter className="p-4">*/}

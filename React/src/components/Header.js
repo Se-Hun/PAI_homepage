@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+//import {Redirect} from 'react-router-dom';
 import './Header.css';
 import logo from './PaiLogo.PNG';
 import {
@@ -9,9 +10,11 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink
+    NavLink,
+    Button
 } from 'reactstrap';
 
+import { deleteTokens, isLoggedIn } from '../login/auth';
 
 
 
@@ -74,9 +77,11 @@ class Header extends Component {
                                 <NavLink href="/calendar/">Calendar</NavLink>
                             </NavItem>
 
-                            <NavItem>
-                                <NavLink href="/login/">Login</NavLink>
-                            </NavItem>
+
+                            <LogButton/>
+                            {/*<NavItem>*/}
+                            {/*    <NavLink href="/login/">Login</NavLink>*/}
+                            {/*</NavItem>*/}
 
                            
                         </Nav>
@@ -88,6 +93,25 @@ class Header extends Component {
            
 
             )
+    }
+}
+
+class LogButton extends Component {
+    _signOut(e) {
+        e.preventDefault()
+        deleteTokens()
+        window.location.replace("/")
+        //this.props.history.push('/login')
+    }
+
+    _signIn(e) {
+        e.preventDefault()
+        window.location.replace("/login")
+    }
+
+    render() {
+        if(isLoggedIn()) return (<Button color="warning" onClick={this._signOut}>LogOut</Button>)
+        else return (<Button color="success" onClick={this._signIn}>LogIn</Button>)
     }
 }
 

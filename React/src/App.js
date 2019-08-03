@@ -20,6 +20,8 @@ import Register from "./pages/Register";
 
 
 const DefaultLayout = ({ component: Component, ...rest }) => {
+
+
     return (
         <Route {...rest} render={matchProps => (
             <div className="DefaultLayout">

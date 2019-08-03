@@ -15,6 +15,8 @@ import {
   Row
 } from 'reactstrap';
 
+import { Icon } from 'semantic-ui-react'
+
 import { isLoggedIn } from '../../login/auth';
 
 class Login extends Component {
@@ -40,8 +42,8 @@ class Login extends Component {
   _handleLogin = (event) => {
     event.preventDefault()
 
-    let url = "http://localhost:5000/login"
-    // let url = "http://168.188.128.40:5402/login"
+    //let url = "http://localhost:5000/login"
+    let url = "http://168.188.128.40:5402/login" //연구실 서버임=>잠깐만 이렇게 해두자!
     let formData  = new FormData()
     let data = this.state
     for(let name in data) {
@@ -86,16 +88,18 @@ class Login extends Component {
       <div className="app flex-row align-items-center">
         <Container>
           <Row className="justify-content-center">
-            <Col>
+            <Col md="8">
               <CardGroup>
-                <Card>
+                <Card className="p-4">
                   <CardBody>
                     <Form>
                       <h1>로그인</h1>
                       <br/>
-                      <InputGroup>
+                      <InputGroup className="mb-3">
                         <InputGroupAddon addonType="prepend">
-                          <InputGroupText>@</InputGroupText>
+                          <InputGroupText>
+                            <Icon name="at"/>
+                          </InputGroupText>
                         </InputGroupAddon>
                         <Input type="text"
                                name="userId"
@@ -104,10 +108,10 @@ class Login extends Component {
                                value={this.state.userId}
                                onChange={this._handleChange}/>
                       </InputGroup>
-                      <InputGroup>
+                      <InputGroup className="mb-4">
                         <InputGroupAddon addonType="prepend">
                           <InputGroupText>
-                            <i className="glyphicon">&#xe033;</i>
+                            <Icon name="lock"/>
                           </InputGroupText>
                         </InputGroupAddon>
                         <Input type="password"
