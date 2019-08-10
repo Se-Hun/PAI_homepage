@@ -5,7 +5,7 @@ const Footer = (props) => {
     return (
         <div>
             <Jumbotron>
-                <h3 className="display-7">Club Executives</h3>
+                <h3 className="display-7">임원진</h3>
 
                 
                 <hr/>

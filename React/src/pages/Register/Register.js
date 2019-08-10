@@ -15,7 +15,7 @@ import {
 } from 'reactstrap';
 
 import {Icon} from 'semantic-ui-react';
-//import Calendar from 'react-input-calendar'
+//import Pcalendar from 'react-input-calendar'
 import DatePicker from 'react-date-picker';
 
 import { Redirect } from 'react-router-dom';
@@ -291,7 +291,7 @@ class Register extends Component {
                       </Input>
                     </InputGroup>
                     <InputGroup className="mb-2">
-                      {/*<Calendar format='DD-MM-YYYY' date='4-12-2014' />*/}
+                      {/*<Pcalendar format='DD-MM-YYYY' date='4-12-2014' />*/}
                     </InputGroup>
                     <InputGroup className="mb-4">
                       <InputGroupText>생년월일을 선택해주세요.</InputGroupText>

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from './components/Header';
 import Footer from './components/Footer';
 
+
 import Home from "./routes/Home";
 import About from "./routes/About";
 import Notice from "./routes/Notice";
@@ -11,7 +12,7 @@ import FreeBoard from "./routes/FreeBoard";
 import Info from "./routes/Info";
 import Library from "./routes/Library";
 import Gallery from "./routes/Gallery";
-import Calendar from "./routes/Calendar";
+
 
 import Login from "./pages/Login";
 import Page404 from "./pages/Page404";
@@ -60,7 +61,7 @@ class App extends Component {
                             <DefaultLayout path="/info" component={Info} />
                             <DefaultLayout path="/library" component={Library} />
                             <DefaultLayout path="/gallery" component={Gallery} />
-                            <DefaultLayout path="/calendar" component={Calendar} />
+
 
                             <Route exact path="/login" name="Login Page" component={Login} />
                             <Route exact path="/page404" name="404 Page" component={Page404} />

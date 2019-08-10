@@ -27,10 +27,10 @@ class Grid2 extends Component {
                         <Col>
                             <Table>
 
-                                <thead>
+                                <thead align="center">
 
                                     <tr>
-                                        <th>Library</th>
+                                        <th>자료실</th>
                                     </tr>
 
                                 </thead>
@@ -73,10 +73,10 @@ class Grid2 extends Component {
                         <Col>
                             <Table>
 
-                                <thead>
+                                <thead align="center">
 
                                     <tr>
-                                        <th>Gallery</th>
+                                        <th>갤러리</th>
                                     </tr>
 
                                 </thead>

@@ -23,10 +23,10 @@ class Grid extends Component {
                     <Col>
                         <Table>
 
-                        <thead>
+                        <thead align="center">
 
                             <tr>
-                                <th>Notice</th>
+                                <th >공지사항</th>
                             </tr>
 
                             </thead>
@@ -69,10 +69,10 @@ class Grid extends Component {
                     <Col>
                         <Table>
 
-                        <thead>
+                        <thead align="center">
 
                             <tr>
-                                <th>FreeBoard</th>
+                                <th>자유 게시판</th>
                             </tr>
 
                             </thead>
@@ -113,10 +113,10 @@ class Grid extends Component {
                     <Col>
                         <Table>
 
-                        <thead>
+                        <thead align="center">
 
                             <tr>
-                                <th>Information</th>
+                                <th >정보 게시판</th>
                             </tr>
 
                             </thead>

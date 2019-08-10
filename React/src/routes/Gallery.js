@@ -1,14 +1,8 @@
 
 import React, { Component } from 'react';
-import Pictures from '../components/Pictures';
-import Grid from '../containers/Grid';
-import Grid2 from '../containers/Grid2';
-
-
-
-
-
-
+import './Gallery.css';
+import { Container, Row, Col } from 'reactstrap';
+import logo from '../components/PaiLogo.PNG';
 
 
 class Gallery extends Component {
@@ -17,54 +11,198 @@ class Gallery extends Component {
     render() {
         return (
 
-            <div>
+
+              <Container className="wrapper">
+                <Row>
+                    <Col>
+
+                      <p>
+
+                      <a href="#">
+                           <img src={logo} alt="logo"/>
+                       </a>
+
+                      </p>
+
+                      <a href="#">
+                        <strong>제목부분</strong>
+                      </a>
+
+                      <p>2019-08-09</p>
+
+
+                    </Col>
+
+                   <Col>
+
+                      <p>
+
+                      <a href="#">
+                           <img src={logo} alt="logo"/>
+                       </a>
+
+                      </p>
+
+                      <a href="#">
+                        <strong>제목부분</strong>
+                      </a>
+
+                      <p>2019-08-09</p>
+
+
+                    </Col>
+
+                    <Col>
+
+                      <p>
+
+                      <a href="#">
+                           <img src={logo} alt="logo"/>
+                       </a>
+
+                      </p>
+
+                      <a href="#">
+                        <strong>제목부분</strong>
+                      </a>
+
+                      <p>2019-08-09</p>
+
+
+                    </Col>
+
+                </Row>
+
+                <Row>
+                    <Col>
+
+                      <p>
+
+                      <a href="#">
+                           <img src={logo} alt="logo"/>
+                       </a>
+
+                      </p>
+
+                      <a href="#">
+                        <strong>제목부분</strong>
+                      </a>
+
+                      <p>2019-08-09</p>
+
+
+                    </Col>
+
+                   <Col>
+
+                      <p>
+
+                      <a href="#">
+                           <img src={logo} alt="logo"/>
+                       </a>
+
+                      </p>
+
+                      <a href="#">
+                        <strong>제목부분</strong>
+                      </a>
+
+                      <p>2019-08-09</p>
+
+
+                    </Col>
+
+                    <Col>
+
+                      <p>
+
+                      <a href="#">
+                           <img src={logo} alt="logo"/>
+                       </a>
+
+                      </p>
+
+                      <a href="#">
+                        <strong>제목부분</strong>
+                      </a>
+
+                      <p>2019-08-09</p>
+
+
+                    </Col>
+
+                </Row>
+
+
+                <Row>
+                    <Col>
+
+                      <p>
+
+                      <a href="#">
+                           <img src={logo} alt="logo"/>
+                       </a>
+
+                      </p>
+
+                      <a href="#">
+                        <strong>제목부분</strong>
+                      </a>
+
+                      <p>2019-08-09</p>
+
+
+                    </Col>
+
+                   <Col>
+
+                      <p>
+
+                      <a href="#">
+                           <img src={logo} alt="logo"/>
+                       </a>
+
+                      </p>
+
+                      <a href="#">
+                        <strong>제목부분</strong>
+                      </a>
+
+                      <p>2019-08-09</p>
+
+
+                    </Col>
+
+                    <Col>
+
+                      <p>
+
+                      <a href="#">
+                           <img src={logo} alt="logo"/>
+                       </a>
+
+                      </p>
+
+                      <a href="#">
+                        <strong>제목부분</strong>
+                      </a>
+
+                      <p>2019-08-09</p>
+
+
+                    </Col>
+
+                </Row>
 
 
 
 
 
-                <div>
 
-                    <Pictures />
+              </Container>
 
-                </div>
-
-
-                <div>
-                    <Grid />
-                </div>
-
-
-
-                <div>
-                    <Grid2 />
-                </div>
-
-
-
-
-
-
-            </div>
-
-
-
-        );
+    );
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
 

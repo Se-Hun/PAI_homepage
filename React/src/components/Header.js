@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom';
 import './Header.css';
+import Pcalendar from '../routes/Pcalendar'
+
 import logo from './PaiLogo.PNG';
 import {
     Collapse,
@@ -12,11 +14,13 @@ import {
     NavItem,
     NavLink,
     Button,
-    Row,
-    Col
+    Modal, ModalHeader, ModalBody, ModalFooter
+
+
 } from 'reactstrap';
 
 import { deleteTokens, isLoggedIn } from '../login/auth';
+
 
 
 
@@ -60,25 +64,32 @@ class Header extends Component {
                                 <NavLink href="/about/">About</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="/notice/">Notice</NavLink>
+                                <NavLink href="/notice/">공지사항</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="/freeboard/">FreeBoard</NavLink>
+                                <NavLink href="/freeboard/">자유게시판</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="/info/">Info</NavLink>
+                                <NavLink href="/info/">정보</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="/library/">Library</NavLink>
+                                <NavLink href="/library/">자료실</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="/gallery/">Gallery</NavLink>
+                                <NavLink href="/gallery/">갤러리</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="/calendar/">Calendar</NavLink>
+                                <CalendarModal/>
                             </NavItem>
 
+                            <NavItem>
+
+
                             <LogButton/>
+
+                            </NavItem>
+
+
 
                             <div className="ml-3">
                                 {isLoggedIn() ? sessionStorage.getItem("username") + "님, 환영합니다." : ""}
@@ -120,6 +131,47 @@ class LogButton extends Component {
         else return (<Button color="success" onClick={this._signIn}>LogIn</Button>)
     }
 }
+
+
+class CalendarModal extends React.Component {
+
+
+    constructor(props) {
+    super(props);
+    this.state = {
+      modal: false
+    };
+
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle() {
+    this.setState(prevState => ({
+      modal: !prevState.modal
+    }));
+  }
+
+   render() {
+    return (
+      <div>
+        <Button color="danger" onClick={this.toggle}>일정</Button>
+        <Modal style={{ maxWidth: "90vw"}}  isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+          <ModalHeader toggle={this.toggle}>PAI 동아리 일정</ModalHeader>
+          <ModalBody>
+
+              <Pcalendar/>
+
+          </ModalBody>
+          <ModalFooter>
+
+          </ModalFooter>
+        </Modal>
+      </div>
+    );
+  }
+}
+
+
 
 
 export default Header;
