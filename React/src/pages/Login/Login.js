@@ -43,8 +43,8 @@ class Login extends Component {
   _handleLogin = (event) => {
     event.preventDefault()
 
-    //let url = "http://localhost:5000/login"
-    let url = "http://168.188.128.40:5402/login" //연구실 서버임=>잠깐만 이렇게 해두자!
+    let url = "http://localhost:5000/login"
+    // let url = "http://168.188.128.40:5402/login" //연구실 서버임=>잠깐만 이렇게 해두자!
     let formData  = new FormData()
     let data = this.state
     for(let name in data) {
