@@ -12,6 +12,8 @@ import FreeBoard from "./routes/FreeBoard";
 import Info from "./routes/Info";
 import Library from "./routes/Library";
 import Gallery from "./routes/Gallery";
+import WriteForm1 from "./containers/WriteForm1";
+
 
 
 import Login from "./pages/Login";
@@ -56,11 +58,25 @@ class App extends Component {
 
                             <DefaultLayout exact path="/" component={Home} />
                             <DefaultLayout path="/about" component={About} />
-                            <DefaultLayout path="/notice" component={Notice} />
-                            <DefaultLayout path="/freeboard" component={FreeBoard} />
-                            <DefaultLayout path="/info" component={Info} />
-                            <DefaultLayout path="/library" component={Library} />
+
+                            <DefaultLayout exact path="/notice" component={Notice} />
+                            <DefaultLayout path="/notice/write" component={WriteForm1} />
+
+                            <DefaultLayout exact path="/freeboard" component={FreeBoard} />
+                            <DefaultLayout path="/freeboard/write" component={WriteForm1} />
+
+                            <DefaultLayout exact path="/info" component={Info} />
+                            <DefaultLayout path="/info/write" component={WriteForm1} />
+
+
+                            <DefaultLayout exact path="/library" component={Library} />
+                            <DefaultLayout path="/library/write" component={WriteForm1} />
+
                             <DefaultLayout path="/gallery" component={Gallery} />
+
+
+
+
 
 
                             <Route exact path="/login" name="Login Page" component={Login} />
@@ -69,7 +85,8 @@ class App extends Component {
                             <Route exact path="/Register" name="Register Page" component={Register} />
 
                         </Switch>
-                            
+
+
 
                   </div>
 

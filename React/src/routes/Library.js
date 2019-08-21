@@ -1,12 +1,12 @@
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
 import Home from "./Home";
 import Notice from "./Notice";
-import Pictures from "../components/Pictures";
-import Grid from "../containers/Grid";
+
 import List from "../containers/List";
+import {Button, Row, Col} from 'reactstrap';
 
 
 
@@ -77,6 +77,15 @@ class Library extends Component {
 
                     <List/>
 
+                </div>
+
+                <div>
+                 <Row>
+                    <Col xs="9"/>
+                    <Col xs="2" style={{marginBottom: "10px"}}>
+                        <Link to = "/library/write"><Button color="primary" >글쓰기</Button></Link>
+                    </Col>
+                </Row>
                 </div>
 
 

@@ -1,6 +1,5 @@
 
 import React, { Component } from 'react';
-import {Redirect} from 'react-router-dom';
 import './Header.css';
 import Pcalendar from '../routes/Pcalendar'
 
@@ -127,8 +126,8 @@ class LogButton extends Component {
     }
 
     render() {
-        if(isLoggedIn()) return (<Button color="warning" onClick={this._signOut}>LogOut</Button>)
-        else return (<Button color="success" onClick={this._signIn}>LogIn</Button>)
+        if(isLoggedIn()) return (<Button color="Transparent" onClick={this._signOut}>LogOut</Button>)
+        else return (<Button color="Transparent" onClick={this._signIn}>LogIn</Button>)
     }
 }
 
@@ -154,7 +153,7 @@ class CalendarModal extends React.Component {
    render() {
     return (
       <div>
-        <Button color="danger" onClick={this.toggle}>일정</Button>
+        <Button color="Transparent" onClick={this.toggle}>일정</Button>
         <Modal style={{ maxWidth: "90vw"}}  isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>PAI 동아리 일정</ModalHeader>
           <ModalBody>

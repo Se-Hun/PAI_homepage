@@ -1,8 +1,11 @@
 
 import React, { Component } from 'react';
 import './Gallery.css';
-import { Container, Row, Col } from 'reactstrap';
+import {Button, Container, Row, Col } from 'reactstrap';
 import logo from '../components/PaiLogo.PNG';
+import {Link} from "react-router-dom";
+
+
 
 
 class Gallery extends Component {
@@ -11,6 +14,14 @@ class Gallery extends Component {
     render() {
         return (
 
+
+
+
+            <div>
+
+
+
+                <div>
 
               <Container className="wrapper">
                 <Row>
@@ -196,10 +207,21 @@ class Gallery extends Component {
 
 
 
-
-
-
               </Container>
+
+            </div>
+
+               <div>
+                <Row>
+                    <Col xs="9"/>
+                    <Col xs="2" style={{marginBottom: "10px"}}>
+                        <Link to = "/notice/write"><Button color="primary" >글쓰기</Button></Link>
+                    </Col>
+                </Row>
+                </div>
+
+
+                </div>
 
     );
     }
