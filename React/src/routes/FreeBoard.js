@@ -11,12 +11,12 @@ import {Button, Row, Col, Table, Pagination, PaginationLink, PaginationItem} fro
 
 
 
-
-
 class FreeBoard extends Component {
 
     state = {
-        freeboard : ""
+        freeboard : "",
+        currentPage : 0
+
     }
 
     componentDidMount() {
@@ -45,25 +45,147 @@ class FreeBoard extends Component {
         // console.log(this.state.freeboard)
     }
 
+    handleClick(e, index) {
+
+         e.preventDefault();
+
+        this.setState({
+          currentPage: index
+
+
+    });
+
+
+
+  }
+
+_renderPagination = () => {
+        const obj_length = Object.keys(this.state.freeboard).length
+
+
+        this.pageSize = 10;
+        this.pageCount = Math.ceil(obj_length/this.pageSize)
+
+
+    return (
+
+        <Pagination className = "Pagination">
+
+                    <PaginationItem disabled={this.state.currentPage <= 0}>
+                        <PaginationLink
+                            onClick ={e => this.handleClick(e, 0)}
+                            first
+                            href="#"
+
+                        />
+
+                     </PaginationItem>
+
+                    <PaginationItem disabled={this.state.currentPage <= 0}>
+                        <PaginationLink
+                            onClick = {e => this.handleClick(e, this.state.currentPage-1)}
+                            previous
+                            href="#" />
+                    </PaginationItem>
+
+            {[...Array(this.pageCount)].map((page, i) =>
+
+                    <PaginationItem active={i === this.state.currentPage} key={i}>
+                        <PaginationLink onClick={e => this.handleClick(e, i)} href="#">
+                          {i+1}
+                        </PaginationLink>
+                     </PaginationItem>
+            )}
+
+                    <PaginationItem disabled={this.state.currentPage+1 === this.pageCount}>
+                        <PaginationLink
+                            onClick = {e => this.handleClick(e, this.state.currentPage+1)}
+                            next
+                            href="#" />
+                    </PaginationItem>
+
+                    <PaginationItem disabled={this.state.currentPage+1 === this.pageCount}>
+                        <PaginationLink
+                            onClick = {e => this.handleClick(e, this.pageCount-1)}
+                            last
+                            href="#" />
+                    </PaginationItem>
+
+        </Pagination>
+    )
+
+
+
+
+
+
+}
+
+
+
+
+
     _renderFreeBoard = () => {
-        const freeboard = this.state.freeboard.map((article, index) => {
+
+
+        const freeboard = this.state.freeboard
+            .slice(
+                this.state.currentPage * this.pageSize,
+                (this.state.currentPage + 1) * this.pageSize
+            )
+            .map((article, index) => {
+
+                console.log(this.state.currentPage)
+
+
             // const date = article.date.split("-")
             // console.log(date)
+            //const id = article.id
+
             return (
-                <tr>
+
+
+
+                <tr key={index}>
                     <td>{article.writer}</td>
-                    <td>{article.title}</td>
+                    <td><Link to = {{pathname : `/freeboard/${article.id}`,
+                        state : {
+                            title : article.title,
+                            content : article.content,
+                            id : article.id,
+                            date : article.date,
+                            views : article.views,
+                            likes : article.likes,
+                            writer : article.writer,
+                            reply : article.reply
+
+                    }}}> {article.title}</Link></td>
+
+
                     <td style={{textAlign : "center"}}>{article.views}</td>
                     <td style={{textAlign : "center"}}>{article.likes}</td>
                     <td style={{textAlign : "center"}}>{article.date}</td>
                 </tr>
+
             )
+
+
+
         })
+
+
+
         return freeboard
+
     }
 
 
+
+
     render() {
+
+
+
         return (
 
              <div>
@@ -81,15 +203,18 @@ class FreeBoard extends Component {
                                 </tr>
                             </thead>
                                 <tbody>
+
                                     {this.state.freeboard ? this._renderFreeBoard() : "loading..."}
+
                                 </tbody>
                         </Table>
-                        <Pagination className = "Pagination">
-                            <PaginationItem>
-                                <PaginationLink first href="#" />
-                             </PaginationItem>
-                        </Pagination>
+
+
                     </div>
+
+                    {this.state.currentPage >= 0 ? this._renderPagination() : "loading..."}
+
+
 
                 </div>
 

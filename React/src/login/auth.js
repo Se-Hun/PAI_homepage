@@ -14,6 +14,10 @@ export function isLoggedIn() {
     return sessionStorage.getItem("access_token") !== null && sessionStorage.getItem("access_token") !== "undefined";
 }
 
+export function isAdmin() {
+    return sessionStorage.getItem('role') == 'Admin';
+}
+
 export function deleteTokens(){
     sessionStorage.removeItem("access_token");
     sessionStorage.removeItem("refresh_token");

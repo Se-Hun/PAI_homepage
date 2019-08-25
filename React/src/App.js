@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from './components/Header';
 import Footer from './components/Footer';
+import { Jumbotron } from 'reactstrap';
+import { ListGroup, ListGroupItem, Badge } from 'reactstrap';
 
 
 import Home from "./routes/Home";
@@ -43,15 +45,70 @@ const DefaultLayout = ({ component: Component, ...rest }) => {
 
 
 
+class Article extends Component {
+    render() {
+        return(
+            <div>
+
+                 <Jumbotron className="Jumbo">
+
+                     <ListGroup>
+
+                         <ListGroupItem>title : {this.props.location.state.title} </ListGroupItem>
+
+
+                <hr className="my-4" />
+
+                <p>title : {this.props.location.state.title}</p>
+
+                     <p>writer : {this.props.location.state.writer}</p>
+
+                <hr className="my-4" />
+
+                <p>{this.props.location.state.content}</p>
+
+
+                <h6 className="text-center ">
+
+
+                    <p>views: {this.props.location.state.views}</p>
+
+
+                </h6>
+
+
+                     </ListGroup>
+
+                 </Jumbotron>
+
+
+
+
+
+
+            </div>
+
+        )
+    }
+}
+
+
 
 class App extends Component {
 
+
+
    
     render() {
+
+
+
+
         return (
+
             <Router>
                 <div>
-                 
+
                     <div>
                         <Switch>
 
@@ -63,7 +120,8 @@ class App extends Component {
                             <DefaultLayout path="/notice/write" component={WriteForm1} />
 
                             <DefaultLayout exact path="/freeboard" component={FreeBoard} />
-                            <DefaultLayout path="/freeboard/write" component={WriteForm1} />
+                            <DefaultLayout exact path="/freeboard/write" component={WriteForm1} />
+                            <DefaultLayout exact path="/freeboard/:id" component={Article} />
 
                             <DefaultLayout exact path="/info" component={Info} />
                             <DefaultLayout path="/info/write" component={WriteForm1} />
@@ -97,7 +155,7 @@ class App extends Component {
 
             
             
-           
+
 
         );
     }
