@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b8368347-fbcb-41e9-a0f7-647df7455485" name="Default Changelist" comment="" />
+    <list default="true" id="b8368347-fbcb-41e9-a0f7-647df7455485" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,8 +15,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="20" column="3" lean-forward="true" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+            <state relative-caret-position="196">
+              <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -25,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rest_API.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="217" column="35" selection-start-line="217" selection-start-column="35" selection-end-line="217" selection-end-column="35" />
+            <state relative-caret-position="217">
+              <caret line="209" column="33" lean-forward="true" selection-start-line="209" selection-start-column="33" selection-end-line="209" selection-end-column="33" />
               <folding>
                 <element signature="e#41#85#0" expanded="true" />
               </folding>
@@ -37,8 +39,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="28" column="42" lean-forward="true" selection-start-line="21" selection-start-column="3" selection-end-line="28" selection-end-column="42" />
+            <state relative-caret-position="76">
+              <caret line="4" column="29" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="29" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -49,7 +51,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
+            <state relative-caret-position="190">
               <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
             </state>
           </provider>
@@ -68,6 +70,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>login</find>
+      <find>res</find>
+      <find>data</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -79,21 +83,25 @@
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/model.py" />
         <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/asdf.js" />
         <option value="$PROJECT_DIR$/rest_API.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="952" />
     <option name="width" value="977" />
     <option name="height" value="1038" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -101,11 +109,25 @@
               <item name="Flask" type="b2602c69:ProjectViewProjectNode" />
               <item name="Flask" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Flask" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="Flask" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.7 (Flask) &gt;" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="Flask" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.7 (Flask) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -158,17 +180,21 @@
       <workItem from="1566399198759" duration="133000" />
       <workItem from="1566399492865" duration="115000" />
       <workItem from="1566399731182" duration="7343000" />
+      <workItem from="1566638269938" duration="5407000" />
+      <workItem from="1566660734303" duration="445000" />
+      <workItem from="1566661393528" duration="14167000" />
+      <workItem from="1566737927363" duration="2166000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7591000" />
+    <option name="totallyTimeSpent" value="29776000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="762" y="0" width="781" height="830" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25670242" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.02010724" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -182,7 +208,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32956153" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3323782" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -199,37 +225,39 @@
     <SUITE FILE_PATH="coverage/Flask$flask.coverage" NAME="flask Coverage Results" MODIFIED="1566408534592" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/venv/asfd.js" />
+    <entry file="file://$PROJECT_DIR$/asdf.js" />
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
+        <state relative-caret-position="190">
           <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="28" column="42" lean-forward="true" selection-start-line="21" selection-start-column="3" selection-end-line="28" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="20" column="3" lean-forward="true" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+        <state relative-caret-position="196">
+          <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="29" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/rest_API.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="217" column="35" selection-start-line="217" selection-start-column="35" selection-end-line="217" selection-end-column="35" />
+        <state relative-caret-position="217">
+          <caret line="209" column="33" lean-forward="true" selection-start-line="209" selection-start-column="33" selection-end-line="209" selection-end-column="33" />
           <folding>
             <element signature="e#41#85#0" expanded="true" />
           </folding>
