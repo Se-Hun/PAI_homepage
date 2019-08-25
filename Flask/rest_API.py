@@ -6,7 +6,7 @@ from flask_jwt_extended import (create_access_token, create_refresh_token, jwt_r
 import hashlib
 from datetime import datetime
 
-from model import User, FreeBoard, db
+from model import User, FreeBoard, About, db
 
 '''
 flask_jwt_extended 모듈의 create_access_token을 이용하여 token을 정하려면
@@ -254,3 +254,48 @@ class getFreeBoard(Resource):
             result.append(temp)
 
         return { "result" : result }
+
+class getAbout(Resource):
+    def get(self):
+        about = About.query.all()
+
+        result = []
+        for content in about:
+            temp = {
+                "text" : about.text,
+                "date" : about.date,
+                "writer" : about.writer
+            }
+            result.append(temp)
+        return {"result" : result}
+
+class updateAbout(Resource):
+    def post(self):
+        try:
+            parser = reqparse.RequestParser()
+            parser.add_argument('role')
+            parser.add_argument('text')
+            parser.add_argument('writer')
+
+            data = parser.parse_args()
+
+            if data['role'] == 'Admin':
+                prev_about = About.query.all()
+                prev_about.remove()
+
+                date = datetime.now()
+                date = str(date.year) + "-" + str(date.month) + "-" + str(date.day) + " " + str(date.hour) + ":" + str(date.minute) + ":" + str(date.second)
+
+                new_about = About(
+                    text = data['text'],
+                    writer = data['writer'],
+                    date = date
+                )
+                new_about.save()
+                return {
+                    "message" : "About 수정에 성공했습니다."
+                }
+            else:
+                {"error" : "접근 권한이 없습니다."}
+        except:
+            raise Exception("글 작성에 실패했습니다.")

@@ -37,3 +37,8 @@ class Should_Confirm_User(db.Document):
     username = db.StringField()
     studentId = db.StringField()
 '''
+
+class About(db.Document):
+    text = db.StringField()
+    date = db.StringField()
+    writer = db.StringField()

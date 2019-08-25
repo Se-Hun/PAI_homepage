@@ -18,6 +18,8 @@ api.add_resource(rest_API.UserRegistration, '/register')
 api.add_resource(rest_API.UserLogin, '/login')
 api.add_resource(rest_API.insertFreeBoard, '/user/insert/freeboard')
 api.add_resource(rest_API.getFreeBoard, '/user/get/freeboard')
+api.add_resource(rest_API.getAbout, '/about')
+api.add_resource(rest_API.updateAbout, '/about/admin/update')
 '''
 api.add_resource(rest_API.UserApproval, '/user/approval')
 api.add_resource(rest_API.UserRejection, '/user/reject')
