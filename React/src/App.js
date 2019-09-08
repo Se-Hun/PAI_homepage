@@ -15,6 +15,7 @@ import Info from "./routes/Info";
 import Library from "./routes/Library";
 import Gallery from "./routes/Gallery";
 import WriteForm1 from "./containers/WriteForm1";
+import NoticeWrite from "./containers/NoticeWrite";
 
 
 
@@ -117,7 +118,8 @@ class App extends Component {
                             <DefaultLayout path="/about" component={About} />
 
                             <DefaultLayout exact path="/notice" component={Notice} />
-                            <DefaultLayout path="/notice/write" component={WriteForm1} />
+                            <DefaultLayout exact path="/notice/write" component={NoticeWrite} />
+                            <DefaultLayout exact path="/notice/:id" component={Article} />
 
                             <DefaultLayout exact path="/freeboard" component={FreeBoard} />
                             <DefaultLayout exact path="/freeboard/write" component={WriteForm1} />

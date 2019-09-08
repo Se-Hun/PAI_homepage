@@ -6,7 +6,7 @@ from flask_jwt_extended import (create_access_token, create_refresh_token, jwt_r
 import hashlib
 from datetime import datetime
 
-from model import User, FreeBoard, About, db
+from model import User, FreeBoard, Notice, About, Event, db
 
 '''
 flask_jwt_extended 모듈의 create_access_token을 이용하여 token을 정하려면
@@ -235,6 +235,88 @@ class insertFreeBoard(Resource):
         except:
             raise Exception("글 작성에 실패했습니다.")
 
+
+class insertEvent(Resource):
+    def post(self):
+        try:
+            parser = reqparse.RequestParser()
+
+            parser.add_argument('start')
+            parser.add_argument('end')
+            parser.add_argument('title')
+            parser.add_argument('writer')
+
+            data = parser.parse_args()
+
+            start = data['start']
+            end = data['end']
+            title = data['title']
+
+
+
+            E = Event(
+                start=start,
+                end=end,
+                title=title
+            )
+
+            E.save()  # Database 안에 document 저장
+
+            return {
+                "message": "일정 작성에 성공했습니다."
+            }
+
+
+        except:
+            raise Exception("일정 작성에 실패했습니다.")
+
+
+
+
+
+
+
+
+
+class insertNotice(Resource):
+    def post(self):
+        try:
+            parser = reqparse.RequestParser()
+            parser.add_argument('title')
+            parser.add_argument('content')
+            parser.add_argument('username')
+
+            data = parser.parse_args()
+
+            title = data['title']
+            content = data['content']
+            id = 2  # 이거 나중에 맨 마지막 글 아이디 찾아서 바꿔줘야함!
+            date = datetime.now()
+            date = str(date.year) + "-" + str(date.month) + "-" + str(date.day) + " " + str(
+                date.hour) + ":" + str(date.minute) + ":" + str(date.second)
+            # print(date)
+            views = 0
+            likes = 0
+            writer = data['username']
+            reply = [""]
+
+            n = Notice(title=title,
+                       content=content,
+                       id=id,
+                       date=date,
+                       views=views,
+                       likes=likes,
+                       writer=writer,
+                       reply=reply)
+            n.save()  # Database 안에 document 저장
+
+            return {
+                "message": "글 작성에 성공했습니다."
+            }
+
+        except:
+            raise Exception("글 작성에 실패했습니다.")
+
 class getFreeBoard(Resource):
     def get(self):
         freeboard = FreeBoard.query.all()
@@ -255,6 +337,26 @@ class getFreeBoard(Resource):
 
         return { "result" : result }
 
+class getNotice(Resource):
+    def get(self):
+        notice = Notice.query.all()
+
+        result = []
+        for text in notice:
+            temp = {
+                "title": text.title,
+                "content": text.content,
+                "id": text.id,
+                "date": text.date,
+                "views": text.views,
+                "likes": text.likes,
+                "writer": text.writer,
+                "reply": text.reply
+            }
+            result.append(temp)
+
+        return {"result": result}
+
 class getAbout(Resource):
     def get(self):
         about = About.query.all()
@@ -262,12 +364,30 @@ class getAbout(Resource):
         result = []
         for content in about:
             temp = {
-                "text" : about.text,
-                "date" : about.date,
-                "writer" : about.writer
+                "text" : content.text,
+                "date" : content.date,
+                "writer" : content.writer
             }
             result.append(temp)
         return {"result" : result}
+
+
+class getEvent(Resource):
+    def get(selfs):
+        event = Event.query.all()
+
+        result = []
+
+        for function in event:
+            temp = {
+                "start" : function.start,
+                "end" : function.end,
+                "title" : function.title
+
+            }
+            result.append(temp)
+        return {"result" : result}
+
 
 class updateAbout(Resource):
     def post(self):
@@ -280,7 +400,7 @@ class updateAbout(Resource):
             data = parser.parse_args()
 
             if data['role'] == 'Admin':
-                prev_about = About.query.all()
+                prev_about = About.query.first()
                 prev_about.remove()
 
                 date = datetime.now()

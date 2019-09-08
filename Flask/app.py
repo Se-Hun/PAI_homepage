@@ -16,8 +16,17 @@ jwt=JWTManager(app)
 
 api.add_resource(rest_API.UserRegistration, '/register')
 api.add_resource(rest_API.UserLogin, '/login')
+
 api.add_resource(rest_API.insertFreeBoard, '/user/insert/freeboard')
 api.add_resource(rest_API.getFreeBoard, '/user/get/freeboard')
+
+api.add_resource(rest_API.insertNotice, '/user/insert/notice')
+api.add_resource(rest_API.getNotice, '/user/get/notice')
+
+api.add_resource(rest_API.insertEvent, '/user/insert/event')
+api.add_resource(rest_API.getEvent, '/user/get/event')
+
+
 api.add_resource(rest_API.getAbout, '/about')
 api.add_resource(rest_API.updateAbout, '/about/admin/update')
 '''

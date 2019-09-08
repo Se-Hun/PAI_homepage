@@ -1,7 +1,9 @@
-
+import { isAdmin } from '../login/auth';
 import React, { Component } from 'react';
 import './Header.css';
-import Pcalendar from '../routes/Pcalendar'
+import PaiCalendar from '../routes/PaiCalendar'
+import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+
 
 import logo from './PaiLogo.PNG';
 import {
@@ -77,8 +79,9 @@ class Header extends Component {
                             <NavItem>
                                 <NavLink href="/gallery/">갤러리</NavLink>
                             </NavItem>
+
                             <NavItem>
-                                <CalendarModal/>
+                                <PaiCalendar/>
                             </NavItem>
 
                             <NavItem>
@@ -132,43 +135,10 @@ class LogButton extends Component {
 }
 
 
-class CalendarModal extends React.Component {
 
 
-    constructor(props) {
-    super(props);
-    this.state = {
-      modal: false
-    };
 
-    this.toggle = this.toggle.bind(this);
-  }
 
-  toggle() {
-    this.setState(prevState => ({
-      modal: !prevState.modal
-    }));
-  }
-
-   render() {
-    return (
-      <div>
-        <Button color="Transparent" onClick={this.toggle}>일정</Button>
-        <Modal style={{ maxWidth: "90vw"}}  isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader toggle={this.toggle}>PAI 동아리 일정</ModalHeader>
-          <ModalBody>
-
-              <Pcalendar/>
-
-          </ModalBody>
-          <ModalFooter>
-
-          </ModalFooter>
-        </Modal>
-      </div>
-    );
-  }
-}
 
 
 

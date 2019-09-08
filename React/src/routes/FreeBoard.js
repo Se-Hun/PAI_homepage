@@ -1,12 +1,8 @@
 
 import React, { Component } from 'react';
-import List from '../containers/List';
+
 import {Link} from "react-router-dom";
 import {Button, Row, Col, Table, Pagination, PaginationLink, PaginationItem} from 'reactstrap';
-
-
-
-
 
 
 
