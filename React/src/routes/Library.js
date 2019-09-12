@@ -7,6 +7,7 @@ import Notice from "./Notice";
 
 import List from "../containers/List";
 import {Button, Row, Col} from 'reactstrap';
+import {isLoggedIn} from "../login/auth";
 
 
 
@@ -55,8 +56,8 @@ class Library extends Component {
                 <div>
                  <Row>
                     <Col xs="9"/>
-                    <Col xs="2" style={{marginBottom: "10px"}}>
-                        <Link to = "/library/write"><Button color="primary" >글쓰기</Button></Link>
+                    <Col xs="2" style={{marginBottom: "10px"}}>\
+                        {isLoggedIn() ? (<Link to = "/freeboard/write"><Button color="primary" >글쓰기</Button></Link>):("")}
                     </Col>
                 </Row>
                 </div>

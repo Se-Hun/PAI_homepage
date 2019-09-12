@@ -29,6 +29,28 @@ class FreeBoard(db.Document):
     reply = db.ListField(db.StringField())
     # restrict = db.StringField()
 
+
+class Info(db.Document):
+    title = db.StringField()
+    content = db.StringField()
+    id = db.IntField()
+    date = db.StringField()
+    views = db.IntField()
+    likes = db.IntField()
+    writer = db.StringField()
+    reply = db.ListField(db.StringField())
+
+class Code(db.Document):
+    title = db.StringField()
+    content = db.StringField()
+    id = db.IntField()
+    date = db.StringField()
+    views = db.IntField()
+    likes = db.IntField()
+    writer = db.StringField()
+    reply = db.ListField(db.StringField())
+
+
 class Notice(db.Document):
 
     title = db.StringField()
@@ -39,6 +61,8 @@ class Notice(db.Document):
     likes = db.IntField()
     writer = db.StringField()
     reply = db.ListField(db.StringField())
+
+
 
 '''
 class Should_Confirm_User(db.Document):

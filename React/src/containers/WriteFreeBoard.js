@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Container, Row, Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import {Link} from "react-router-dom";
 
-class WriteForm1 extends Component {
+class WriteFreeBoard extends Component {
 
     state = {
         title : "",
@@ -125,4 +125,4 @@ class WriteForm1 extends Component {
 
 }
 
-export default WriteForm1;
+export default WriteFreeBoard;

@@ -23,6 +23,13 @@ api.add_resource(rest_API.getFreeBoard, '/user/get/freeboard')
 api.add_resource(rest_API.insertNotice, '/user/insert/notice')
 api.add_resource(rest_API.getNotice, '/user/get/notice')
 
+api.add_resource(rest_API.insertInfo, '/user/insert/info')
+api.add_resource(rest_API.getInfo, '/user/get/info')
+
+
+api.add_resource(rest_API.insertCode, '/user/insert/code')
+api.add_resource(rest_API.getCode, '/user/get/code')
+
 api.add_resource(rest_API.insertEvent, '/user/insert/event')
 api.add_resource(rest_API.getEvent, '/user/get/event')
 

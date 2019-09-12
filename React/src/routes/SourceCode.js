@@ -3,26 +3,26 @@ import React, { Component } from 'react';
 
 import {Link} from "react-router-dom";
 import {Button, Row, Col, Table, Pagination, PaginationLink, PaginationItem} from 'reactstrap';
-import { isLoggedIn } from '../login/auth';
+import { isAdmin } from '../login/auth';
 
 
 
 
-class Info extends Component {
+class SourceCode extends Component {
 
     state = {
-        info : "",
+        code : "",
         currentPage : 0
 
     }
 
     componentDidMount() {
-        this._getInfo()
+        this._getCode()
     }
 
     _callApi = () => {
-        let url = "http://localhost:5000/user/get/info"
-        // let url = "http://168.188.128.40:/user/get/info"
+        let url = "http://localhost:5000/user/get/code"
+        // let url = "http://168.188.128.40:/user/get/code"
 
         return fetch(url,{
             method: "GET"
@@ -34,10 +34,10 @@ class Info extends Component {
             .catch(err=>console.log(err))
     }
 
-    _getInfo = async() => {
-        const info = await this._callApi()
+    _getCode = async() => {
+        const code = await this._callApi()
         this.setState({
-            "info" : info.result
+            "code" : code.result
         })
 
         //console.log(this.state)
@@ -58,7 +58,7 @@ class Info extends Component {
   }
 
 _renderPagination = () => {
-        const obj_length = Object.keys(this.state.info).length
+        const obj_length = Object.keys(this.state.code).length
 
 
         this.pageSize = 10;
@@ -123,17 +123,17 @@ _renderPagination = () => {
 
 
 
-    _renderInfo = () => {
+    _renderCode = () => {
 
 
-        const info = this.state.info.reverse()
+        const code = this.state.code
             .slice(
                 this.state.currentPage * this.pageSize,
                 (this.state.currentPage + 1) * this.pageSize
             )
             .map((article, index) => {
 
-                // console.log(this.state.info.reverse())
+                console.log(this.state.currentPage)
 
 
             // const date = article.date.split("-")
@@ -146,7 +146,7 @@ _renderPagination = () => {
 
                 <tr key={index}>
                     <td>{article.writer}</td>
-                    <td><Link to = {{pathname : `/info/${article.id}`,
+                    <td><Link to = {{pathname : `/library/code/${article.id}`,
                         state : {
                             title : article.title,
                             content : article.content,
@@ -173,7 +173,7 @@ _renderPagination = () => {
 
 
 
-        return info
+        return code
 
     }
 
@@ -202,7 +202,7 @@ _renderPagination = () => {
                             </thead>
                                 <tbody>
 
-                                    {this.state.info ? this._renderInfo() : "loading..."}
+                                    {this.state.code ? this._renderCode() : "loading..."}
 
                                 </tbody>
                         </Table>
@@ -221,7 +221,7 @@ _renderPagination = () => {
                     <Row>
                     <Col xs="9"/>
                     <Col xs="2" style={{marginBottom: "10px"}}>
-                        {isLoggedIn()? (<Link to = "/info/write"><Button color="primary" >글쓰기</Button></Link>) : ("")}
+                        {isAdmin() ? (<Link to = "/library/code/write"><Button color="primary" >글쓰기</Button></Link>):("")}
                     </Col>
                     </Row>
                 </div>
@@ -249,4 +249,4 @@ _renderPagination = () => {
 
 }
 
-export default Info;
+export default SourceCode;

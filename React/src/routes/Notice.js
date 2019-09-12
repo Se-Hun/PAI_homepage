@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 import {Link} from "react-router-dom";
 import {Button, Row, Col, Table, Pagination, PaginationLink, PaginationItem} from 'reactstrap';
+import {isAdmin, isLoggedIn} from "../login/auth";
 
 
 
@@ -125,7 +126,7 @@ _renderPagination = () => {
     _renderNotice = () => {
 
 
-        const notice = this.state.notice
+        const notice = this.state.notice.reverse()
             .slice(
                 this.state.currentPage * this.pageSize,
                 (this.state.currentPage + 1) * this.pageSize
@@ -220,7 +221,9 @@ _renderPagination = () => {
                     <Row>
                     <Col xs="9"/>
                     <Col xs="2" style={{marginBottom: "10px"}}>
-                        <Link to = "/notice/write"><Button color="primary" >글쓰기</Button></Link>
+
+                        {isAdmin() ? (<Link to = "/freeboard/write"><Button color="primary" >글쓰기</Button></Link>):("")}
+
                     </Col>
                     </Row>
                 </div>

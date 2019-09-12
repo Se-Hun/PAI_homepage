@@ -1,8 +1,8 @@
-import { isAdmin } from '../login/auth';
 import React, { Component } from 'react';
 import './Header.css';
+import LibraryDropdown from './LibraryDropdown'
 import PaiCalendar from '../routes/PaiCalendar'
-import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+
 
 
 import logo from './PaiLogo.PNG';
@@ -15,7 +15,6 @@ import {
     NavItem,
     NavLink,
     Button,
-    Modal, ModalHeader, ModalBody, ModalFooter
 
 
 } from 'reactstrap';
@@ -74,7 +73,9 @@ class Header extends Component {
                                 <NavLink href="/info/">정보</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="/library/">자료실</NavLink>
+                                {/*<NavLink href="/library/">자료실</NavLink>*/}
+                                <LibraryDropdown/>
+
                             </NavItem>
                             <NavItem>
                                 <NavLink href="/gallery/">갤러리</NavLink>

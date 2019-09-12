@@ -1,7 +1,7 @@
 import { isAdmin } from '../login/auth';
 import React, { Component } from 'react';
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import moment from 'moment'
+import moment, {isDate} from 'moment'
 import
 {
     Calendar, momentLocalizer
@@ -35,9 +35,16 @@ class PaiCalendar extends React.Component {
         nestedModal: false,
         closeAll: false,
         events: [],
-        title:"" ,
-        start:"",
-        end:"",
+
+        inputTitle:"" ,
+        isTitleValid: false,
+
+        inputStartDate:"",
+        isStartDateValid: false,
+
+        inputEndDate:"",
+        isEndDateValid: false
+
 
     };
 
@@ -98,21 +105,109 @@ class PaiCalendar extends React.Component {
     });
   }
 
-   _handleChange = (event) => {
-        event.preventDefault()
+   // _handleChange = (event) => {
+   //      event.preventDefault()
+   //
+   //      const name = event.target.name
+   //      const value = event.target.value
+   //      // console.log(name)
+   //      // console.log(value)
+   //
+   //
+   //      this.setState({
+   //          [name] : value
+   //      })
+   //
+   //  }
 
-        const name = event.target.name
-        const value = event.target.value
-        // console.log(name)
-        // console.log(value)
 
-
-        this.setState({
-            [name] : value
-        })
-
+    _validateTitle = inputTitle => {
+        if(inputTitle.length >1) {
+            this.setState({
+                isTitleValid: true,
+                inputTitle
+            });
+        } else {
+            this.setState({
+                isTitleValid: false,
+                inputTitle
+            })
+        }
     }
 
+    isInputTitleValid = () => {
+        const {inputTitle, isTitleValid} = this.state;
+
+        if (inputTitle) return isTitleValid;
+    };
+
+    _validateStartDate = dateInput => {
+
+        const dateExp = /^\d{4}-\d{2}-\d{2}$/;
+
+        // console.log(dateExp.test(dateInput));
+
+        if(dateInput.match(dateExp)) {
+            this.setState({
+                isStartDateValid: true,
+                inputStartDate: dateInput
+            });
+        } else {
+            this.setState({
+                isStartDateValid: false,
+                inputStartDate : dateInput
+
+            })
+        }
+    }
+
+    _validateEndDate = dateInput => {
+
+        const dateExp = /^\d{4}-\d{2}-\d{2}$/;
+
+        // console.log(dateExp.test(dateInput));
+
+        if(dateInput.match(dateExp)) {
+            this.setState({
+                isEndDateValid: true,
+                inputEndDate: dateInput
+            });
+        } else {
+            this.setState({
+                isEndDateValid: false,
+                inputEndDate : dateInput
+
+            })
+        }
+    }
+
+    isInputStartDateValid = () => {
+        const {inputStartDate,isStartDateValid } = this.state;
+
+        if(inputStartDate) return isStartDateValid;
+    };
+
+     isInputEndDateValid = () => {
+        const {inputEndDate,isEndDateValid } = this.state;
+
+        if(inputEndDate) return isEndDateValid;
+    };
+
+    inputClassNameHelper = boolean => {
+          switch (boolean) {
+            case true:
+              return 'is-valid';
+            case false:
+              return 'is-invalid';
+            default:
+              return '';
+  }
+};
+
+    isEveryFieldValid = () => {
+          const { isTitleValid, isStartDateValid, isEndDateValid } = this.state;
+          return isTitleValid && isStartDateValid &&isEndDateValid;
+}
 
 
   _AddEvent = () => {
@@ -123,9 +218,9 @@ class PaiCalendar extends React.Component {
         const formData = new FormData()
 
 
-        const start = this.state.start
-        const end = this.state.end
-        const title = this.state.title
+        const start = this.state.inputStartDate
+        const end = this.state.inputEndDate
+        const title = this.state.inputTitle
 
 
         formData.append('start', start)
@@ -149,6 +244,19 @@ class PaiCalendar extends React.Component {
       }).catch(err => console.log(err))
     }
 
+     renderSubmitButton = () => {
+      if (this.isEveryFieldValid()) {
+        return (
+          <Button color ="primary" onClick={this._AddEvent}>확인</Button>
+        )
+      }
+
+      return (
+            <Button color ="primary" onClick={this._AddEvent} disabled>확인</Button>
+      )
+    }
+
+
 
 
 
@@ -169,13 +277,27 @@ class PaiCalendar extends React.Component {
                                   <Form>
                                         <FormGroup>
                                             <Label for="EventName">활동 내용</Label>
-                                            <Input type="text" name="title" id="exampleEvent" onChange={this._handleChange}/>
+                                            <Input className={`form-control ${this.inputClassNameHelper(this.isInputTitleValid())}`}
+                                                   type="text"
+                                                   name="title"
+                                                   id="exampleEvent"
+                                                   onChange={e => this._validateTitle(e.target.value)}/>
 
                                             <Label for="StartDate">시작일</Label>
-                                            <Input type="text" name="start" id="exampleStart" placeholder="YYYY-MM-DD" onChange={this._handleChange}/>
+                                            <Input className={`form-control ${this.inputClassNameHelper(this.isInputStartDateValid())}`}
+                                                   type="text"
+                                                   name="start"
+                                                   id="exampleStart"
+                                                   placeholder="YYYY-MM-DD"
+                                                   onChange={e => this._validateStartDate(e.target.value)}/>
 
                                             <Label for="EndDate">종료일</Label>
-                                            <Input type="text" name="end" id="exampleEnd" placeholder="YYYY-MM-DD" onChange={this._handleChange}/>
+                                             <Input className={`form-control ${this.inputClassNameHelper(this.isInputEndDateValid())}`}
+                                                   type="text"
+                                                   name="end"
+                                                   id="exampleEnd"
+                                                   placeholder="YYYY-MM-DD"
+                                                   onChange={e => this._validateEndDate(e.target.value)}/>
 
                                         </FormGroup>
 
@@ -183,9 +305,7 @@ class PaiCalendar extends React.Component {
 
                               </ModalBody>
                               <ModalFooter>
-                                <Button color="primary" onClick={this._AddEvent}>확인</Button>{' '}
-                                <Button color="secondary" onClick={this.toggleNested}>취소</Button>
-
+                                  <Button color="secondary" onClick={this.toggleNested}>취소</Button>, {this.renderSubmitButton()}
                               </ModalFooter>
                     </Modal>
 

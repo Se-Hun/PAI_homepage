@@ -6,7 +6,7 @@ from flask_jwt_extended import (create_access_token, create_refresh_token, jwt_r
 import hashlib
 from datetime import datetime
 
-from model import User, FreeBoard, Notice, About, Event, db
+from model import User, FreeBoard, Notice, About, Event, Info, Code
 
 '''
 flask_jwt_extended 모듈의 create_access_token을 이용하여 token을 정하려면
@@ -317,6 +317,86 @@ class insertNotice(Resource):
         except:
             raise Exception("글 작성에 실패했습니다.")
 
+class insertInfo(Resource):
+    def post(self):
+        try:
+            parser = reqparse.RequestParser()
+            parser.add_argument('title')
+            parser.add_argument('content')
+            parser.add_argument('username')
+
+            data = parser.parse_args()
+
+            title = data['title']
+            content = data['content']
+            id = 2  # 이거 나중에 맨 마지막 글 아이디 찾아서 바꿔줘야함!
+            date = datetime.now()
+            date = str(date.year) + "-" + str(date.month) + "-" + str(date.day) + " " + str(
+                date.hour) + ":" + str(date.minute) + ":" + str(date.second)
+            # print(date)
+            views = 0
+            likes = 0
+            writer = data['username']
+            reply = [""]
+
+            i = Info(title=title,
+                       content=content,
+                       id=id,
+                       date=date,
+                       views=views,
+                       likes=likes,
+                       writer=writer,
+                       reply=reply)
+            i.save()  # Database 안에 document 저장
+
+            return {
+                "message": "글 작성에 성공했습니다."
+            }
+
+        except:
+            raise Exception("글 작성에 실패했습니다.")
+
+
+class insertCode(Resource):
+    def post(self):
+        try:
+            parser = reqparse.RequestParser()
+            parser.add_argument('title')
+            parser.add_argument('content')
+            parser.add_argument('username')
+
+            data = parser.parse_args()
+
+            title = data['title']
+            content = data['content']
+            id = 2  # 이거 나중에 맨 마지막 글 아이디 찾아서 바꿔줘야함!
+            date = datetime.now()
+            date = str(date.year) + "-" + str(date.month) + "-" + str(date.day) + " " + str(
+                date.hour) + ":" + str(date.minute) + ":" + str(date.second)
+            # print(date)
+            views = 0
+            likes = 0
+            writer = data['username']
+            reply = [""]
+
+            c = Code(title=title,
+                       content=content,
+                       id=id,
+                       date=date,
+                       views=views,
+                       likes=likes,
+                       writer=writer,
+                       reply=reply)
+            c.save()  # Database 안에 document 저장
+
+            return {
+                "message": "글 작성에 성공했습니다."
+            }
+
+        except:
+            raise Exception("글 작성에 실패했습니다.")
+
+
 class getFreeBoard(Resource):
     def get(self):
         freeboard = FreeBoard.query.all()
@@ -343,6 +423,48 @@ class getNotice(Resource):
 
         result = []
         for text in notice:
+            temp = {
+                "title": text.title,
+                "content": text.content,
+                "id": text.id,
+                "date": text.date,
+                "views": text.views,
+                "likes": text.likes,
+                "writer": text.writer,
+                "reply": text.reply
+            }
+            result.append(temp)
+
+        return {"result": result}
+
+
+class getCode(Resource):
+    def get(self):
+        code = Code.query.all()
+
+        result = []
+        for text in code:
+            temp = {
+                "title": text.title,
+                "content": text.content,
+                "id": text.id,
+                "date": text.date,
+                "views": text.views,
+                "likes": text.likes,
+                "writer": text.writer,
+                "reply": text.reply
+            }
+            result.append(temp)
+
+        return {"result": result}
+
+
+class getInfo(Resource):
+    def get(self):
+        info = Info.query.all()
+
+        result = []
+        for text in info:
             temp = {
                 "title": text.title,
                 "content": text.content,

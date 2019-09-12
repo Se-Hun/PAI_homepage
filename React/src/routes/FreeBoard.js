@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 import {Link} from "react-router-dom";
 import {Button, Row, Col, Table, Pagination, PaginationLink, PaginationItem} from 'reactstrap';
 
+import { isLoggedIn } from '../login/auth';
+
 
 
 
@@ -123,15 +125,18 @@ _renderPagination = () => {
 
     _renderFreeBoard = () => {
 
+        const board = this.state.freeboard.reverse()
 
-        const freeboard = this.state.freeboard
+
+
+        const freeboard = board
             .slice(
                 this.state.currentPage * this.pageSize,
                 (this.state.currentPage + 1) * this.pageSize
             )
             .map((article, index) => {
 
-                console.log(this.state.currentPage)
+                // console.log(this.state.currentPage)
 
 
             // const date = article.date.split("-")
@@ -219,7 +224,7 @@ _renderPagination = () => {
                     <Row>
                     <Col xs="9"/>
                     <Col xs="2" style={{marginBottom: "10px"}}>
-                        <Link to = "/freeboard/write"><Button color="primary" >글쓰기</Button></Link>
+                        {isLoggedIn() ? (<Link to = "/freeboard/write"><Button color="primary" >글쓰기</Button></Link>):("")}
                     </Col>
                     </Row>
                 </div>

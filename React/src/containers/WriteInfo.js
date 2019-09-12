@@ -1,9 +1,9 @@
 
 import React, { Component } from 'react';
-import { Container, Row, Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import {Link} from "react-router-dom";
+import {  Row, Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-class NoticeWrite extends Component {
+
+class WriteInfo extends Component {
 
     state = {
         title : "",
@@ -25,8 +25,8 @@ class NoticeWrite extends Component {
     _handleSubmit = (event) => {
         event.preventDefault()
 
-        let url = "http://localhost:5000/user/insert/notice"
-        // let url = "http://168.188.128.40:/user/insert/notice"
+        let url = "http://localhost:5000/user/insert/info"
+        // let url = "http://168.188.128.40:/user/insert/info"
 
         const username = sessionStorage.getItem('username')
 
@@ -43,7 +43,7 @@ class NoticeWrite extends Component {
             body: formData
         }).then( res => res.json())
       .then(data => {
-          window.location.replace("/notice")
+          window.location.replace("/info")
           return (data['message'] ? alert(data['message']) : "오류입니다.")
       }).catch(err => console.log(err))
 
@@ -125,4 +125,4 @@ class NoticeWrite extends Component {
 
 }
 
-export default NoticeWrite;
+export default WriteInfo;

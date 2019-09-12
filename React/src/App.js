@@ -14,8 +14,12 @@ import FreeBoard from "./routes/FreeBoard";
 import Info from "./routes/Info";
 import Library from "./routes/Library";
 import Gallery from "./routes/Gallery";
-import WriteForm1 from "./containers/WriteForm1";
-import NoticeWrite from "./containers/NoticeWrite";
+import SourceCode from "./routes/SourceCode";
+
+import WriteFreeBoard from "./containers/WriteFreeBoard";
+import WriteNotice from "./containers/WriteNotice";
+import WriteInfo from "./containers/WriteInfo";
+import WriteCode from "./containers/WriteCode";
 
 
 
@@ -51,36 +55,16 @@ class Article extends Component {
         return(
             <div>
 
-                 <Jumbotron className="Jumbo">
 
-                     <ListGroup>
+                         title : {this.props.location.state.title}
 
-                         <ListGroupItem>title : {this.props.location.state.title} </ListGroupItem>
-
-
-                <hr className="my-4" />
-
-                <p>title : {this.props.location.state.title}</p>
-
-                     <p>writer : {this.props.location.state.writer}</p>
-
-                <hr className="my-4" />
-
-                <p>{this.props.location.state.content}</p>
+                        <p>writer : {this.props.location.state.writer}</p>
+                        <p>{this.props.location.state.content}</p>
+                        <h6 className="text-center ">
+                            <p>views: {this.props.location.state.views}</p>
+                        </h6>
 
 
-                <h6 className="text-center ">
-
-
-                    <p>views: {this.props.location.state.views}</p>
-
-
-                </h6>
-
-
-                     </ListGroup>
-
-                 </Jumbotron>
 
 
 
@@ -118,19 +102,24 @@ class App extends Component {
                             <DefaultLayout path="/about" component={About} />
 
                             <DefaultLayout exact path="/notice" component={Notice} />
-                            <DefaultLayout exact path="/notice/write" component={NoticeWrite} />
+                            <DefaultLayout exact path="/notice/write" component={WriteNotice} />
                             <DefaultLayout exact path="/notice/:id" component={Article} />
 
                             <DefaultLayout exact path="/freeboard" component={FreeBoard} />
-                            <DefaultLayout exact path="/freeboard/write" component={WriteForm1} />
+                            <DefaultLayout exact path="/freeboard/write" component={WriteFreeBoard} />
                             <DefaultLayout exact path="/freeboard/:id" component={Article} />
 
                             <DefaultLayout exact path="/info" component={Info} />
-                            <DefaultLayout path="/info/write" component={WriteForm1} />
+                            <DefaultLayout path="/info/write" component={WriteInfo} />
+                            <DefaultLayout exact path="/info/:id" component={Article} />
 
 
-                            <DefaultLayout exact path="/library" component={Library} />
-                            <DefaultLayout path="/library/write" component={WriteForm1} />
+                            <DefaultLayout exact path="/library/ppt" component={Library} />  /* ppt용 컴포넌트로 고쳐야함 */
+                            <DefaultLayout exact path="/library/code" component={SourceCode} />
+
+                            {/*<DefaultLayout path="/library/ppt/write" component={} />*/}
+                            <DefaultLayout path="/library/code/write" component={WriteCode} />
+
 
                             <DefaultLayout path="/gallery" component={Gallery} />
 
