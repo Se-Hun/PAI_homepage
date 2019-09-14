@@ -10,7 +10,7 @@ db = MongoAlchemy(app)
 class User(db.Document):
     userId = db.StringField()
     password = db.StringField()
-    role = db.StringField()
+    role = db.StringField() # User, Executive, Admin
     username = db.StringField()
     studentId = db.StringField()
     phonenumber = db.StringField()

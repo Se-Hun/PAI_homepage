@@ -2,11 +2,9 @@
 import React, { Component } from 'react';
 
 import {Link} from "react-router-dom";
-import {Button, Row, Col, Table, Pagination, PaginationLink, PaginationItem} from 'reactstrap';
+import {Row, Col, Table, Pagination, PaginationLink, PaginationItem} from 'reactstrap';
+import {Button} from '@material-ui/core';
 import {isAdmin, isLoggedIn} from "../login/auth";
-
-
-
 
 class Notice extends Component {
 
@@ -48,80 +46,58 @@ class Notice extends Component {
          e.preventDefault();
 
         this.setState({
-          currentPage: index
+            currentPage: index
+        });
+    }
 
-
-    });
-
-
-
-  }
-
-_renderPagination = () => {
+    _renderPagination = () => {
         const obj_length = Object.keys(this.state.notice).length
-
-
         this.pageSize = 10;
         this.pageCount = Math.ceil(obj_length/this.pageSize)
 
+        return (
+            <Pagination>
+                        <PaginationItem disabled={this.state.currentPage <= 0}>
+                            <PaginationLink
+                                onClick ={e => this.handleClick(e, 0)}
+                                first
+                                href="#"
+                            />
+                        </PaginationItem>
 
-    return (
+                        <PaginationItem disabled={this.state.currentPage <= 0}>
+                            <PaginationLink
+                                onClick = {e => this.handleClick(e, this.state.currentPage-1)}
+                                previous
+                                href="#" />
+                        </PaginationItem>
 
-        <Pagination className = "Pagination">
+                {[...Array(this.pageCount)].map((page, i) =>
 
-                    <PaginationItem disabled={this.state.currentPage <= 0}>
-                        <PaginationLink
-                            onClick ={e => this.handleClick(e, 0)}
-                            first
-                            href="#"
+                        <PaginationItem active={i === this.state.currentPage} key={i}>
+                            <PaginationLink onClick={e => this.handleClick(e, i)} href="#">
+                              {i+1}
+                            </PaginationLink>
+                         </PaginationItem>
+                )}
 
-                        />
+                        <PaginationItem disabled={this.state.currentPage+1 === this.pageCount}>
+                            <PaginationLink
+                                onClick = {e => this.handleClick(e, this.state.currentPage+1)}
+                                next
+                                href="#" />
+                        </PaginationItem>
 
-                     </PaginationItem>
+                        <PaginationItem disabled={this.state.currentPage+1 === this.pageCount}>
+                            <PaginationLink
+                                onClick = {e => this.handleClick(e, this.pageCount-1)}
+                                last
+                                href="#" />
+                        </PaginationItem>
 
-                    <PaginationItem disabled={this.state.currentPage <= 0}>
-                        <PaginationLink
-                            onClick = {e => this.handleClick(e, this.state.currentPage-1)}
-                            previous
-                            href="#" />
-                    </PaginationItem>
-
-            {[...Array(this.pageCount)].map((page, i) =>
-
-                    <PaginationItem active={i === this.state.currentPage} key={i}>
-                        <PaginationLink onClick={e => this.handleClick(e, i)} href="#">
-                          {i+1}
-                        </PaginationLink>
-                     </PaginationItem>
-            )}
-
-                    <PaginationItem disabled={this.state.currentPage+1 === this.pageCount}>
-                        <PaginationLink
-                            onClick = {e => this.handleClick(e, this.state.currentPage+1)}
-                            next
-                            href="#" />
-                    </PaginationItem>
-
-                    <PaginationItem disabled={this.state.currentPage+1 === this.pageCount}>
-                        <PaginationLink
-                            onClick = {e => this.handleClick(e, this.pageCount-1)}
-                            last
-                            href="#" />
-                    </PaginationItem>
-
-        </Pagination>
-    )
-
-
-
-
-
-
-}
-
-
-
-
+            </Pagination>
+        )
+    }
 
     _renderNotice = () => {
 
@@ -141,10 +117,7 @@ _renderPagination = () => {
             //const id = article.id
 
             return (
-
-
-
-                <tr key={index}>
+                <tr key={index} align="center">
                     <td>{article.writer}</td>
                     <td><Link to = {{pathname : `/notice/${article.id}`,
                         state : {
@@ -158,36 +131,18 @@ _renderPagination = () => {
                             reply : article.reply
 
                     }}}> {article.title}</Link></td>
-
-
-                    <td style={{textAlign : "center"}}>{article.views}</td>
-                    <td style={{textAlign : "center"}}>{article.likes}</td>
-                    <td style={{textAlign : "center"}}>{article.date}</td>
+                    <td>{article.views}</td>
+                    <td>{article.likes}</td>
+                    <td>{article.date}</td>
                 </tr>
-
             )
-
-
-
         })
-
-
-
         return notice
-
     }
 
-
-
-
     render() {
-
-
-
         return (
-
              <div>
-
                 <div>
                     <div className = "List" >
                         <Table striped>
@@ -201,54 +156,27 @@ _renderPagination = () => {
                                 </tr>
                             </thead>
                                 <tbody>
-
                                     {this.state.notice ? this._renderNotice() : "loading..."}
-
                                 </tbody>
                         </Table>
-
-
                     </div>
-
                     {this.state.currentPage >= 0 ? this._renderPagination() : "loading..."}
-
-
-
                 </div>
-
                 <div>
-
                     <Row>
-                    <Col xs="9"/>
+                    <Col xs="10"/>
                     <Col xs="2" style={{marginBottom: "10px"}}>
-
-                        {isAdmin() ? (<Link to = "/freeboard/write"><Button color="primary" >글쓰기</Button></Link>):("")}
-
+                        {isAdmin() ? (
+                            <Link to = "/notice/write">
+                                <Button variant="contained" size="large" color="primary" >글쓰기</Button>
+                            </Link>):("")
+                        }
                     </Col>
                     </Row>
                 </div>
-
-
              </div>
-
-
         );
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 export default Notice;

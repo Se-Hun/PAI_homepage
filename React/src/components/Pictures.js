@@ -1,7 +1,5 @@
-
 import React, { Component } from 'react';
 import './Pictures.css';
-
 
 import {
     Carousel,

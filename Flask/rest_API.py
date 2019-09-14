@@ -40,7 +40,7 @@ class UserRegistration(Resource):
 
         u = User(userId=data['userId'],
                  password=hashlib.md5(data['password'].encode()).hexdigest(),
-                 role="User",
+                 role="User", #또는 Admin
                  username=data['username'],
                  studentId=data['studentId'],
                  phonenumber=data['phonenumber'],

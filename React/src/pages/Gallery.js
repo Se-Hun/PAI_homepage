@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import './Gallery.css';
 import {Button, Container, Row, Col } from 'reactstrap';
-import logo from '../components/PaiLogo.PNG';
+import logo from '../assets/img/PaiLogo.PNG';
 import {Link} from "react-router-dom";
 
 

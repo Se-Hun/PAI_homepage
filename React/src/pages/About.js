@@ -1,8 +1,6 @@
-
 import React, { Component } from 'react';
-import { Container, Row, Col, Button, Form, FormGroup, Label, Input, InputGroup, InputGroupAddon } from 'reactstrap';
-
-
+import { Container, Row, Col, Form, FormGroup, Label, Input, InputGroup, InputGroupAddon } from 'reactstrap'
+import {Button} from '@material-ui/core';
 
 import { isAdmin } from '../login/auth';
 
@@ -25,6 +23,7 @@ class About extends Component {
             method: "GET"
         }).then( res => res.json())
             .then(data => {
+                console.log(data)
                 return data.result
             })
             .catch(err=>console.log(err))
@@ -107,43 +106,22 @@ class About extends Component {
         console.log(this.state.currentText)
         return (
             <div>
-
-
-
-
+                <Col style={{marginLeft: "90%"}}>
+                    {
+                        isAdmin() ? (
+                            this.state.onEdit ? (
+                                <Button variant="contained" color="primary" size="large" onClick={e => this._handleClick(e)}>완료</Button>
+                            ) : (<Button variant="contained" color="secondary" size="large" onClick={this._handleEdit}>수정</Button>)
+                        ) : ("")
+                    }
+                </Col>
                 <div style={{textAlign: "center", marginTop: "100px", marginBottom: "100px", fontWeight: "bold", fontSize: "1.5em"}}>
-
-
-
                     <div>{this.state.currentText ? (
                         this.state.onEdit ? (<Input type="textarea"  cols="40" rows="5" value={this.state.currentText}
                                                     onChange={this._handleChange}/>) : (this._renderAbout())
                     ) : "loading..."}</div>
-
                 </div>
-
-
-
-                <Col xs="2" style={{marginLeft: "700px" , marginBottom: "10px"}}>
-                    {
-                        isAdmin() ? (
-                            this.state.onEdit ? (
-                                <Button onClick={e => this._handleClick(e)}>완료</Button>
-                            ) : (<Button onClick={this._handleEdit}>수정</Button>)
-                        ) : ("")
-                    }
-                </Col>
-
-
-
-
-
-
             </div>
-
-
-
-
         );
     }
 
