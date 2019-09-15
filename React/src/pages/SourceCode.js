@@ -181,13 +181,8 @@ _renderPagination = () => {
 
 
     render() {
-
-
-
         return (
-
              <div>
-
                 <div>
                     <div className = "List" >
                         <Table striped>
@@ -201,23 +196,13 @@ _renderPagination = () => {
                                 </tr>
                             </thead>
                                 <tbody>
-
                                     {this.state.code ? this._renderCode() : "loading..."}
-
                                 </tbody>
                         </Table>
-
-
                     </div>
-
                     {this.state.currentPage >= 0 ? this._renderPagination() : "loading..."}
-
-
-
                 </div>
-
                 <div>
-
                     <Row>
                     <Col xs="9"/>
                     <Col xs="2" style={{marginBottom: "10px"}}>
@@ -225,28 +210,9 @@ _renderPagination = () => {
                     </Col>
                     </Row>
                 </div>
-
-
              </div>
-
-
         );
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 export default SourceCode;

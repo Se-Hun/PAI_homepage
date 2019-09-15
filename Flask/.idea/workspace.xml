@@ -3,25 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="b8368347-fbcb-41e9-a0f7-647df7455485" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rest_API.py" beforeDir="false" afterPath="$PROJECT_DIR$/rest_API.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../React/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/components/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/components/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/components/Header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/components/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/components/PaiLogo.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/assets/img/PaiLogo.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/components/Pictures.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/components/Pictures.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/routes/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/pages/About.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/routes/FreeBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/pages/FreeBoard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/routes/Gallery.css" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/pages/Gallery.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/routes/Gallery.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/pages/Gallery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/routes/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/pages/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/routes/Info.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/pages/Info.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/routes/Library.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/pages/Library.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/routes/Notice.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/pages/Notice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/routes/SourceCode.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/pages/SourceCode.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../React/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../React/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/containers/Article.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/containers/Article.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/containers/WriteNotice.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/containers/WriteNotice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/pages/FreeBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/pages/FreeBoard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/pages/Notice.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/pages/Notice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/pages/SourceCode.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/pages/SourceCode.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +61,7 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -115,7 +104,8 @@
       <workItem from="1568251663099" duration="3592000" />
       <workItem from="1568279457473" duration="1809000" />
       <workItem from="1568307708995" duration="718000" />
-      <workItem from="1568357509960" duration="2178000" />
+      <workItem from="1568357509960" duration="3622000" />
+      <workItem from="1568531246781" duration="6345000" />
     </task>
     <servers />
   </component>
@@ -127,7 +117,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

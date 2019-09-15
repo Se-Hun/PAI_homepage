@@ -6,6 +6,8 @@ import {Row, Col, Table, Pagination, PaginationLink, PaginationItem} from 'react
 import {Button} from '@material-ui/core';
 import {isAdmin, isLoggedIn} from "../login/auth";
 
+import './table.css';
+
 class Notice extends Component {
 
     state = {
@@ -117,20 +119,20 @@ class Notice extends Component {
             //const id = article.id
 
             return (
-                <tr key={index} align="center">
+                <tr key={index} align="center" className="Row">
                     <td>{article.writer}</td>
-                    <td><Link to = {{pathname : `/notice/${article.id}`,
+                    <td><Link style={{textDecoration: "none", color: "black"}} to = {{pathname : `/notice/${article._id}`,
                         state : {
                             title : article.title,
                             content : article.content,
-                            id : article.id,
+                            _id : article._id,
                             date : article.date,
                             views : article.views,
                             likes : article.likes,
                             writer : article.writer,
                             reply : article.reply
-
-                    }}}> {article.title}</Link></td>
+                        }
+                    }}><strong>{article.title}</strong></Link></td>
                     <td>{article.views}</td>
                     <td>{article.likes}</td>
                     <td>{article.date}</td>
@@ -145,14 +147,14 @@ class Notice extends Component {
              <div>
                 <div>
                     <div className = "List" >
-                        <Table striped>
+                        <Table>
                             <thead align="center">
                                 <tr>
                                     <th>글쓴이</th>
                                     <th>제목</th>
                                     <th>조회수</th>
                                     <th>추천수</th>
-                                    <th>날짜</th>
+                                    <th>등록일</th>
                                 </tr>
                             </thead>
                                 <tbody>
@@ -160,18 +162,20 @@ class Notice extends Component {
                                 </tbody>
                         </Table>
                     </div>
-                    {this.state.currentPage >= 0 ? this._renderPagination() : "loading..."}
+                    <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+                        {this.state.currentPage >= 0 ? this._renderPagination() : "loading..."}
+                    </div>
                 </div>
                 <div>
                     <Row>
-                    <Col xs="10"/>
-                    <Col xs="2" style={{marginBottom: "10px"}}>
-                        {isAdmin() ? (
-                            <Link to = "/notice/write">
-                                <Button variant="contained" size="large" color="primary" >글쓰기</Button>
-                            </Link>):("")
-                        }
-                    </Col>
+                        <Col xs="10"/>
+                        <Col xs="2" style={{marginBottom: "10px"}}>
+                            {isAdmin() ? (
+                                <Link to = "/notice/write">
+                                    <Button variant="contained" size="large" color="primary" >글쓰기</Button>
+                                </Link>):("")
+                            }
+                        </Col>
                     </Row>
                 </div>
              </div>

@@ -435,6 +435,8 @@ class getNotice(Resource):
             }
             result.append(temp)
 
+        Notice.query.find_and_modify()
+
         return {"result": result}
 
 
