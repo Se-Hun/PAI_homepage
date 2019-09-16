@@ -1,12 +1,12 @@
-
 import React, { Component } from 'react';
 
 import {Link} from "react-router-dom";
-import {Button, Row, Col, Table, Pagination, PaginationLink, PaginationItem} from 'reactstrap';
+import { Row, Col, Table, Pagination, PaginationLink, PaginationItem, Badge} from 'reactstrap';
+import {Button} from '@material-ui/core';
+
 import { isLoggedIn } from '../login/auth';
 
-
-
+import './table.css';
 
 class Info extends Component {
 
@@ -49,15 +49,10 @@ class Info extends Component {
 
         this.setState({
           currentPage: index
+        });
+    }
 
-
-    });
-
-
-
-  }
-
-_renderPagination = () => {
+    _renderPagination = () => {
         const obj_length = Object.keys(this.state.info).length
 
 
@@ -110,18 +105,9 @@ _renderPagination = () => {
                     </PaginationItem>
 
         </Pagination>
-    )
+        )
 
-
-
-
-
-
-}
-
-
-
-
+    }
 
     _renderInfo = () => {
 
@@ -141,112 +127,72 @@ _renderPagination = () => {
             //const id = article.id
 
             return (
-
-
-
-                <tr key={index}>
+                <tr key={index} align="center" className="Row">
+                    <td><Badge><h3>D-1</h3></Badge></td> {/*뱃지 고르는거 날짜에 따라 다르게 나오도록 할것!!*/}
                     <td>{article.writer}</td>
-                    <td><Link to = {{pathname : `/info/${article.id}`,
+                    <td><Link style={{textDecoration: "none", color: "black"}} to = {{pathname : `/info/${article._id}`,
                         state : {
+                            board : "Info",
                             title : article.title,
                             content : article.content,
-                            id : article.id,
+                            _id : article._id,
                             date : article.date,
                             views : article.views,
                             likes : article.likes,
                             writer : article.writer,
                             reply : article.reply
 
-                    }}}> {article.title}</Link></td>
-
-
-                    <td style={{textAlign : "center"}}>{article.views}</td>
-                    <td style={{textAlign : "center"}}>{article.likes}</td>
-                    <td style={{textAlign : "center"}}>{article.date}</td>
+                    }}}><strong>{article.title}</strong></Link></td>
+                    <td>{article.views}</td>
+                    <td>{article.likes}</td>
+                    <td>{article.date}</td>
                 </tr>
 
             )
-
-
-
         })
-
-
-
         return info
-
     }
 
-
-
-
     render() {
-
-
-
         return (
-
              <div>
-
-                <div>
-                    <div className = "List" >
-                        <Table striped>
-                            <thead align="center">
+                 <div>
+                     <div className = "List" >
+                         <Table>
+                             <thead align="center">
                                 <tr>
+                                    <th>D-X</th>
                                     <th>글쓴이</th>
                                     <th>제목</th>
                                     <th>조회수</th>
                                     <th>추천수</th>
                                     <th>날짜</th>
                                 </tr>
-                            </thead>
+                             </thead>
                                 <tbody>
-
                                     {this.state.info ? this._renderInfo() : "loading..."}
-
                                 </tbody>
-                        </Table>
-
-
-                    </div>
-
-                    {this.state.currentPage >= 0 ? this._renderPagination() : "loading..."}
-
-
-
+                         </Table>
+                     </div>
+                     <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+                        {this.state.currentPage >= 0 ? this._renderPagination() : "loading..."}
+                     </div>
                 </div>
-
                 <div>
-
                     <Row>
-                    <Col xs="9"/>
+                    <Col xs="10"/>
                     <Col xs="2" style={{marginBottom: "10px"}}>
-                        {isLoggedIn()? (<Link to = "/info/write"><Button color="primary" >글쓰기</Button></Link>) : ("")}
+                        {isLoggedIn()? (
+                            <Link to = "/info/write"><Button variant="contained" size="large" color="primary" >글쓰기</Button></Link>
+                        ) : (
+                            <Button disabled variant="contained" size="large" color="primary">글쓰기</Button>
+                        )}
                     </Col>
                     </Row>
                 </div>
-
-
              </div>
-
-
         );
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 export default Info;

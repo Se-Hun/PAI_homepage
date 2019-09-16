@@ -10,45 +10,55 @@ class insertNotice(Resource):
             parser.add_argument('title')
             parser.add_argument('content')
             parser.add_argument('username')
+            parser.add_argument('role')
 
             data = parser.parse_args()
 
-            title = data['title']
-            content = data['content']
+            # print(data['role'])
+            if data['role'] == "Admin" or data['role'] == "Executive":
 
-            current_Notice = db.Notice.find()
-            last_id = 1
-            for doc in current_Notice:
-                if doc is not None:
-                    temp = doc['_id']
-                    if last_id < temp:
-                        last_id = temp
-            _id = last_id + 1
+                title = data['title']
+                content = data['content']
 
-            date = datetime.now()
-            date = str(date.year) + "-" + str(date.month) + "-" + str(date.day) + " " + str(
-                date.hour) + ":" + str(date.minute) + ":" + str(date.second)
-            # print(date)
-            views = 0
-            likes = 0
-            writer = data['username']
-            reply = []
+                current_Notice = db.Notice.find()
+                if current_Notice is None:
+                    return {"error" : "글 작성에 실패했습니다."}
 
-            n = {
-                "title" : title,
-                "content" : content,
-                "_id" : _id,
-                "date" : date,
-                "views" : views,
-                "likes" : likes,
-                "writer" : writer,
-                "reply" : reply
-            }
-            db.Notice.insert(n)  # Database 안에 document 저장
+                last_id = 1
+                for doc in current_Notice:
+                    if doc is not None:
+                        temp = doc['_id']
+                        if last_id < temp:
+                            last_id = temp
+                _id = last_id + 1
 
-            return {
-                "message": "글 작성에 성공했습니다."
-            }
+                date = datetime.now()
+                date = str(date.year) + "-" + str(date.month) + "-" + str(date.day) + " " + str(
+                    date.hour) + ":" + str(date.minute) + ":" + str(date.second)
+                # print(date)
+                views = 0
+                likes = 0
+                writer = data['username']
+                reply = []
+
+                n = {
+                    "title" : title,
+                    "content" : content,
+                    "_id" : _id,
+                    "date" : date,
+                    "views" : views,
+                    "likes" : likes,
+                    "writer" : writer,
+                    "reply" : reply
+                }
+                db.Notice.insert(n)  # Database 안에 document 저장
+
+                return {
+                    "message": "글 작성에 성공했습니다."
+                }
+
+            else:
+                return {"error" : "접근 권한이 없습니다."}
 
         # except:
         #     raise Exception("글 작성에 실패했습니다.")

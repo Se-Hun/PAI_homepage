@@ -35,9 +35,6 @@ class About extends Component {
         this.setState({
             currentText : about[0].text
         })
-
-
-
     }
 
 

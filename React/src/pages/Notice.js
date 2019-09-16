@@ -123,14 +123,8 @@ class Notice extends Component {
                     <td>{article.writer}</td>
                     <td><Link style={{textDecoration: "none", color: "black"}} to = {{pathname : `/notice/${article._id}`,
                         state : {
-                            title : article.title,
-                            content : article.content,
+                            board : "Notice",
                             _id : article._id,
-                            date : article.date,
-                            views : article.views,
-                            likes : article.likes,
-                            writer : article.writer,
-                            reply : article.reply
                         }
                     }}><strong>{article.title}</strong></Link></td>
                     <td>{article.views}</td>

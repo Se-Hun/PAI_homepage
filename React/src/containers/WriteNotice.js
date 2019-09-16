@@ -37,6 +37,7 @@ class WriteNotice extends Component {
         formData.append('username', username)
         formData.append('title', title)
         formData.append('content', content)
+        formData.append('role', sessionStorage.getItem('role'))
 
         return fetch(url, {
             method: "POST",
@@ -44,7 +45,7 @@ class WriteNotice extends Component {
         }).then( res => res.json())
           .then(data => {
               window.location.replace("/notice")
-              return (data['message'] ? alert(data['message']) : "오류입니다.")
+              return (data['message'] ? alert(data['message']) : alert(data['error']))
           }).catch(err => console.log(err))
 
     }

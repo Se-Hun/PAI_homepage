@@ -32,7 +32,7 @@ class updateAbout(Resource):
 
             data = parser.parse_args()
 
-            if data['role'] == 'Admin':
+            if data['role'] == "Admin" or data['role'] == "Executive":
                 db.About.remove({})
 
                 date = datetime.now()

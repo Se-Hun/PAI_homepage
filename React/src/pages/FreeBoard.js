@@ -138,6 +138,7 @@ class FreeBoard extends Component {
                     <td>{article.writer}</td>
                     <td><Link style={{textDecoration: "none", color: "black"}} to = {{pathname : `/freeboard/${article._id}`,
                         state : {
+                            board : "FreeBoard",
                             title : article.title,
                             content : article.content,
                             _id : article._id,

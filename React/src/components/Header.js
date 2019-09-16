@@ -1,39 +1,42 @@
 import React, { Component } from 'react';
 import './Header.css';
-import LibraryDropdown from './LibraryDropdown'
-import PaiCalendar from '../routes/PaiCalendar'
+import Modal from 'react-awesome-modal';
+import PAICalendar from './PAICalendar'
 import logo from '../assets/img/PaiLogo.PNG';
 import {
-    Collapse,
     Navbar,
-    NavbarToggler,
     NavbarBrand,
     Nav,
     NavItem,
     NavLink,
-    // Button,
 } from 'reactstrap';
 import {Button} from '@material-ui/core';
 
 import UserInfo from './UserInfo';
 
-import { deleteTokens, isLoggedIn } from '../login/auth';
+import { isLoggedIn } from '../login/auth';
 
 class Header extends Component {
 
     constructor(props) {
         super(props);
 
-        // this.toggle = this.toggle.bind(this);
-        // this.state = {
-        //     isOpen: false
-        // };
+        this.state = {
+            isModalOpen : false,
+        }
     }
-    // toggle() {
-    //     this.setState({
-    //         isOpen: !this.state.isOpen
-    //     });
-    // }
+
+    _openModal = () => {
+        this.setState({
+            isModalOpen: true,
+        });
+    }
+
+    _closeModal() {
+        this.setState({
+            isModalOpen: false
+        });
+    }
 
     _signIn(e) {
         e.preventDefault()
@@ -77,7 +80,7 @@ class Header extends Component {
                             </NavItem>
                             <NavItem className="px-3" style={{marginTop: "10px", fontSize: "18px", fontWeight: "bold"}}>
                                 {/*<PaiCalendar/>*/}
-                                <NavLink href="/">일정</NavLink>
+                                <NavLink onClick={this._openModal}>일정</NavLink>
                             </NavItem>
                             <div className="px-3" style={{marginLeft: "40px", marginTop: "10px"}}>
                                 {
@@ -86,6 +89,15 @@ class Header extends Component {
                                     )
                                 }
                             </div>
+                            <Modal
+                                visible={this.state.isModalOpen}
+                                width="90%"
+                                height="600"
+                                effect="fadeInUp"
+                                onClickAway={() => this._closeModal()}>
+                                <PAICalendar/>
+                            </Modal>
+
                             {/*<div className="ml-3">*/}
                             {/*    {isLoggedIn() ? sessionStorage.getItem("username") + "님, 환영합니다." : ""}*/}
                             {/*</div>*/}
@@ -103,25 +115,7 @@ class Header extends Component {
     }
 }
 
-// class LogButton extends Component {
-//     _signOut(e) {
-//         e.preventDefault()
-//         deleteTokens()
-//         window.location.replace("/")
-//         //this.props.history.push('/login')
-//     }
-//
-//     _signIn(e) {
-//         e.preventDefault()
-//         window.location.href = "/login" //뒤로가기 가능하게 하려면 이렇게 해야함!
-//         //window.location.replace("/login")
-//         //this.props.history.push("/")
-//     }
-//
-//     render() {
-//         if(isLoggedIn()) return (<Button color="Transparent" onClick={this._signOut}>LogOut</Button>)
-//         else return (<Button color="Transparent" onClick={this._signIn}>LogIn</Button>)
-//     }
-// }
+
+
 
 export default Header;
