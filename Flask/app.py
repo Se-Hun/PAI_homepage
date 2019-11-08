@@ -4,6 +4,7 @@ from flask_restful import Api
 from flask_jwt_extended import JWTManager
 # 플라스크는 JWT 인증이라는걸 쓴다. 즉, flask에서는 flask_jwt_extended라는 모듈을 이용하여 token을 처리한다.
 from flask_cors import CORS
+import os
 
 # from model import User, db
 # import rest_API
@@ -14,6 +15,9 @@ import Info_Manager
 import About_Manager
 import Article_Manager
 import Calendar_Manager
+
+
+import test
 
 app = Flask(__name__)
 CORS(app)
@@ -43,6 +47,11 @@ api.add_resource(Article_Manager.plusLikes, '/plus/likes')
 
 api.add_resource(Calendar_Manager.getEvent, '/user/get/event')
 api.add_resource(Calendar_Manager.insertEvent, '/user/insert/event')
+
+# api.add_resource(test.wakeup, '/wake-up')
+api.add_resource(test.upload, '/upload')
+# api.add_resource(test.image_viewer, '/view/images/<file>')
+
 # api.add_resource(rest_API.insertCode, '/user/insert/code')
 # api.add_resource(rest_API.getCode, '/user/get/code')
 
@@ -62,5 +71,6 @@ def hello_world():
 
 
 if __name__ == '__main__':
+    app.secret_key = os.urandom(24)
     app.run()
     #app.run(host='0.0.0.0')
