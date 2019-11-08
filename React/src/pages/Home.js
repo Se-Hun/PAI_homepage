@@ -1,8 +1,8 @@
 
 import React, { Component } from 'react';
-import Pictures from '../components/Pictures';
-import Grid from '../containers/Grid';
-import Grid2 from '../containers/Grid2';
+// import Pictures from '../components/Pictures';
+// import Grid from '../containers/Grid';
+// import Grid2 from '../containers/Grid2';
 
 class Home extends Component {
 
@@ -10,13 +10,13 @@ class Home extends Component {
         return (
             <div>
                 <div>
-                    <Pictures />
+                    {/*<Pictures />*/}
                 </div>
                 <div>
-                    <Grid />
+                    {/*<Grid />*/}
                 </div>
                 <div>
-                    <Grid2 />
+                    {/*<Grid2 />*/}
                 </div>
             </div>
         );

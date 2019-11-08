@@ -3,11 +3,44 @@
   <component name="ChangeListManager">
     <list default="true" id="b8368347-fbcb-41e9-a0f7-647df7455485" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../React/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/containers/WriteInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/containers/WriteInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../React/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/components/Buttons.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/components/Footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/components/Layout/Footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/components/Layout/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/components/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/components/Layout/Header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/components/Layout/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/components/Images.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/components/Jumbo.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/components/Jumbo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/components/LibraryDropdown.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/components/PAICalendar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/components/Pictures.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/components/Pictures.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/components/Spinner.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/components/UserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/components/user/UserFunction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/components/WakeUp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/containers/Article.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/components/Article.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/containers/DefaultLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/containers/DefaultLayout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/containers/Grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/containers/Grid.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/containers/Grid2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/containers/Grid2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/containers/List.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/containers/List.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/containers/WriteCode.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/containers/WriteFreeBoard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/containers/WriteInfo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/containers/WriteNotice.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/pages/FreeBoard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/pages/Gallery.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/pages/Gallery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/pages/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/pages/Info.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/pages/Library.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/pages/SourceCode.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/routes/PaiCalendar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/routes/events.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/routes/events.json" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +66,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../pytorch-transformers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../React" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -137,6 +170,7 @@
       <workItem from="1568701328611" duration="1371000" />
       <workItem from="1568785261467" duration="431000" />
       <workItem from="1568794812033" duration="581000" />
+      <workItem from="1573222221037" duration="1438000" />
     </task>
     <servers />
   </component>

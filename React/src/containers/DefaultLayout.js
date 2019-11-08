@@ -3,7 +3,7 @@ import {
     Container
 } from 'reactstrap';
 import {Redirect, Route, Switch} from 'react-router-dom';
-import * as router from 'react-router-dom';
+// import * as router from 'react-router-dom';
 
 import {
     AppHeader,
@@ -15,8 +15,8 @@ import routes from '../routes';
 // import Header from "../components/Header";
 // import Footer from "../components/Footer";
 
-const Header = React.lazy(() => import('../components/Header'));
-const Footer = React.lazy(() => import('../components/Footer'));
+const Header = React.lazy(() => import('../components/Layout/Header'));
+const Footer = React.lazy(() => import('../components/Layout/Footer'));
 
 class DefaultLayout extends Component {
 

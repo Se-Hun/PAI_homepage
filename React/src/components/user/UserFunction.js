@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import {Avatar} from '@material-ui/core';
 import {DropdownToggle, DropdownMenu, DropdownItem, UncontrolledDropdown} from 'reactstrap';
 
-import {deleteTokens} from "../login/auth";
+import {deleteTokens} from "../../login/auth";
 
-class UserInfo extends Component {
+class UserFunction extends Component {
 
     _signOut(e) {
         e.preventDefault()
@@ -29,4 +29,4 @@ class UserInfo extends Component {
     }
 }
 
-export default UserInfo
+export default UserFunction
