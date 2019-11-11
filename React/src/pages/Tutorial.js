@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 
 import {Link} from "react-router-dom";
@@ -8,36 +7,37 @@ import {isAdmin, isLoggedIn} from "../login/auth";
 
 import './table.css';
 
-class Notice extends Component {
+class Tutorial extends Component {
 
     state = {
-        notice : "",
+        tutorial : "",
         currentPage : 0
 
     }
 
     componentDidMount() {
-        this._getNotice()
+        this._getTutorial()
     }
 
     _callApi = () => {
-        let url = "http://localhost:5000/user/get/notice"
-        // let url = "http://168.188.128.40:/user/get/notice"
+        let url = "http://localhost:5000/user/get/tutorial"
+        // let url = "http://168.188.128.40:/user/get/tutorial"
 
         return fetch(url,{
             method: "GET"
         }).then( res => res.json())
             .then(data => {
-                return data
                 console.log(data)
+                return data
+                // console.log(data)
             })
             .catch(err=>console.log(err))
     }
 
-    _getNotice = async() => {
-        const notice = await this._callApi()
+    _getTutorial = async() => {
+        const tutorial = await this._callApi()
         this.setState({
-            "notice" : notice.result
+            "tutorial" : tutorial.result
         })
 
         //console.log(this.state)
@@ -53,7 +53,7 @@ class Notice extends Component {
     }
 
     _renderPagination = () => {
-        const obj_length = Object.keys(this.state.notice).length
+        const obj_length = Object.keys(this.state.tutorial).length
         this.pageSize = 10;
         this.pageCount = Math.ceil(obj_length/this.pageSize)
 
@@ -101,10 +101,10 @@ class Notice extends Component {
         )
     }
 
-    _renderNotice = () => {
+    _renderTutorial = () => {
 
 
-        const notice = this.state.notice.reverse()
+        const tutorial = this.state.tutorial.reverse()
             .slice(
                 this.state.currentPage * this.pageSize,
                 (this.state.currentPage + 1) * this.pageSize
@@ -121,9 +121,9 @@ class Notice extends Component {
             return (
                 <tr key={index} align="center" className="Row">
                     <td>{article.writer}</td>
-                    <td><Link style={{textDecoration: "none", color: "black"}} to = {{pathname : `/notice/${article._id}`,
+                    <td><Link style={{textDecoration: "none", color: "black"}} to = {{pathname : `/tutorial/${article._id}`,
                         state : {
-                            board_type : "Notice",
+                            board_type : "Tutorial",
                             _id : article._id,
                         }
                     }}><strong>{article.title}</strong></Link></td>
@@ -133,14 +133,14 @@ class Notice extends Component {
                 </tr>
             )
         })
-        return notice
+        return tutorial
     }
 
     render() {
         return (
              <div>
                 <div>
-                    <h2 style={{marginBottom: "10px"}}>공지사항</h2>
+                    <h2 style={{marginBottom: "10px"}}>인공지능 Tutorial</h2>
                     <div className = "List" >
                         <Table>
                             <thead align="center">
@@ -153,7 +153,7 @@ class Notice extends Component {
                                 </tr>
                             </thead>
                                 <tbody>
-                                    {this.state.notice ? this._renderNotice() : "loading..."}
+                                    {this.state.tutorial ? this._renderTutorial() : "loading..."}
                                 </tbody>
                         </Table>
                     </div>
@@ -167,7 +167,7 @@ class Notice extends Component {
                         <Col xs="2" style={{marginBottom: "10px"}}>
                             {isAdmin() ? (
                                 <Link to = {{
-                                    pathname: "/notice/write",
+                                    pathname: "/tutorial/write",
                                     // state : {
                                     //     board_type: "Notice"
                                     // }
@@ -183,4 +183,4 @@ class Notice extends Component {
     }
 }
 
-export default Notice;
+export default Tutorial;

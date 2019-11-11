@@ -3,44 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="b8368347-fbcb-41e9-a0f7-647df7455485" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/components/Buttons.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/components/Footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/components/Layout/Footer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/components/Layout/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/components/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/components/Layout/Header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/components/Layout/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/components/Images.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/components/Jumbo.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/components/Jumbo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/components/LibraryDropdown.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/components/PAICalendar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/components/Pictures.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/components/Pictures.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/components/Spinner.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/components/UserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/components/user/UserFunction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/components/WakeUp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/containers/Article.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/components/Article.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Article_Manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Article_Manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Calendar_Manager.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../React/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../React/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../React/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/components/Article.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/components/BasicArticle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/components/Layout/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/components/Layout/Header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../React/src/containers/DefaultLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/containers/DefaultLayout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/containers/Grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/containers/Grid.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/containers/Grid2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/containers/Grid2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/containers/List.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/containers/List.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/containers/WriteCode.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/containers/WriteFreeBoard.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/containers/WriteInfo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/containers/WriteNotice.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/pages/FreeBoard.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/pages/Gallery.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/pages/Gallery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/pages/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/pages/Info.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/pages/Library.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/pages/SourceCode.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/pages/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/pages/About.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/pages/FreeBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/pages/FreeBoard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/pages/Notice.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/pages/Notice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/pages/Register/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/pages/Register/Register.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../React/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/routes/PaiCalendar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/routes/events.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/routes/events.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/yarn.lock" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -170,7 +147,9 @@
       <workItem from="1568701328611" duration="1371000" />
       <workItem from="1568785261467" duration="431000" />
       <workItem from="1568794812033" duration="581000" />
-      <workItem from="1573222221037" duration="1438000" />
+      <workItem from="1573222221037" duration="4119000" />
+      <workItem from="1573301790375" duration="808000" />
+      <workItem from="1573316484763" duration="7057000" />
     </task>
     <servers />
   </component>

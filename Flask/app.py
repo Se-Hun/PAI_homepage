@@ -11,10 +11,11 @@ import os
 import User_Manager
 import FreeBoard_Manager
 import Notice_Manager
-import Info_Manager
+# import Info_Manager
 import About_Manager
 import Article_Manager
-import Calendar_Manager
+import Tutorial_Manager
+# import Calendar_Manager
 
 
 import test
@@ -34,19 +35,21 @@ api.add_resource(About_Manager.updateAbout, '/about/admin/update')
 api.add_resource(FreeBoard_Manager.insertFreeBoard, '/user/insert/freeboard')
 api.add_resource(FreeBoard_Manager.getFreeBoard, '/user/get/freeboard')
 
-api.add_resource(Notice_Manager.insertNotice, '/user/insert/notice')
+api.add_resource(Notice_Manager.insertNotice, '/admin/insert/notice')
 api.add_resource(Notice_Manager.getNotice, '/user/get/notice')
 
+api.add_resource(Tutorial_Manager.insertTutorial, '/admin/insert/tutorial')
+api.add_resource(Tutorial_Manager.getTutorial, '/user/get/tutorial')
 # api.add_resource(rest_API.insertInfo, '/user/insert/info')
-api.add_resource(Info_Manager.getInfo, '/user/get/info')
+# api.add_resource(Info_Manager.getInfo, '/user/get/info')
 
 
 api.add_resource(Article_Manager.getArticle, '/get/article')
 api.add_resource(Article_Manager.submitReply, '/submit/reply')
 api.add_resource(Article_Manager.plusLikes, '/plus/likes')
 
-api.add_resource(Calendar_Manager.getEvent, '/user/get/event')
-api.add_resource(Calendar_Manager.insertEvent, '/user/insert/event')
+# api.add_resource(Calendar_Manager.getEvent, '/user/get/event')
+# api.add_resource(Calendar_Manager.insertEvent, '/user/insert/event')
 
 # api.add_resource(test.wakeup, '/wake-up')
 api.add_resource(test.upload, '/upload')

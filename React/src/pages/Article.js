@@ -1,13 +1,19 @@
 import React, {Component} from 'react';
-import {Table, Input, InputGroupAddon, InputGroup, Card, CardBody, CardHeader} from 'reactstrap';
-import {Button, Icon} from '@material-ui/core';
+import {Card, CardBody, CardHeader, Input, InputGroup, InputGroupAddon, Row, Col} from "reactstrap";
 import {isLoggedIn} from "../login/auth";
+import {Button} from "@material-ui/core";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import 'react-quill/dist/quill.bubble.css';
+
 
 class Article extends Component {
 
-    state = {
-        user_reply : "",
-        data : ""
+    constructor(props) {
+        super(props)
+        this.state = {
+            data : ""
+        }
     }
 
     componentDidMount() {
@@ -37,7 +43,7 @@ class Article extends Component {
         // let url = "http://168.188.128.40:/get/article"
 
         const formData = new FormData()
-        formData.append('board', this.props.location.state.board)
+        formData.append('board_type', this.props.location.state.board_type)
         formData.append('_id', this.props.location.state._id)
 
         return fetch(url, {
@@ -61,6 +67,11 @@ class Article extends Component {
     }
 
     _handleSubmit = async() => {
+        if(!this.state.user_reply) {
+            alert("내용이 없습니다.")
+            window.location.reload()
+            return
+        }
         const data = await this._callSubmit()
 
         // console.log(data)
@@ -83,7 +94,7 @@ class Article extends Component {
         const formData = new FormData()
         formData.append('name', sessionStorage.getItem('username'))
         formData.append('content', this.state.user_reply)
-        formData.append('board', this.props.location.state.board)
+        formData.append('board_type', this.props.location.state.board_type)
         formData.append('_id', this.props.location.state._id)
 
         return fetch(url,{
@@ -96,7 +107,7 @@ class Article extends Component {
             })
             .catch(err=>console.log(err))
     }
-    
+
     _handleLikes = async() => {
         const data = await this._callLikes()
 
@@ -118,7 +129,7 @@ class Article extends Component {
         // let url = "http://168.188.128.40:/plus/likes"
 
         const formData = new FormData()
-        formData.append('board', this.props.location.state.board)
+        formData.append('board_type', this.props.location.state.board_type)
         formData.append('_id', this.props.location.state._id)
 
         return fetch(url,{
@@ -135,12 +146,16 @@ class Article extends Component {
     _renderReply = () => {
         const reply = this.state.data.reply.map((re, idx) => {
             return(
-                <Card key={idx} style={{marginBottom: "10px"}}>
+                <Card key={idx} style={{marginBottom: "5px"}}>
                     <CardHeader>{re.name}</CardHeader>
                     <CardBody>{re.content}</CardBody>
                 </Card>
             )
         })
+
+        if(reply.length == 0) {
+            return "등록된 댓글이 없습니다."
+        }
 
         return reply
     }
@@ -148,69 +163,61 @@ class Article extends Component {
     render() {
         return(
             <div>
-                <div style={{marginLeft: "10%", marginRight: "10%", marginBottom: "20px", textAlign: "center"}}>
-                    <h1><strong>{this.state.data ? (this.state.data.title) : ("...loading")}</strong></h1>
-                </div>
-                <div style={{display: "flex", justifyContent: "center", alignItems: "center", marginLeft: "10%", marginRight: "10%"}}>
-                    <Table responsive bordered>
-                        <tbody>
-                            <tr>
-                                <th scope="row" style={{backgroundColor: "lightgray"}}>작성자</th>
-                                <td colspan="3">{this.state.data ? (this.state.data.writer) : ("...loading")}</td>
-                                <th scope="row" style={{backgroundColor: "lightgray"}}>등록일</th>
-                                <td className="b-no-right" colSpan="2">{this.state.data ? (this.state.data.date) : ("...loading")}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" style={{backgroundColor: "lightgray"}}>조회수</th>
-                                <td colSpan="3">{this.state.data ? (this.state.data.views) : ("...loading")}</td>
-                                <th scope="row" style={{backgroundColor: "lightgray"}}>추천수</th>
-                                <td className="b-no-right" colSpan="2">{this.state.data ? (this.state.data.likes) : ("...loading")}</td>
-                            </tr>
-                            <tr>
-                                <td class="b-no-right" colspan="6" style={{textAlign : "center"}}>
-                                    {this.state.data ? (this.state.data.content) : ("...loading")}
-                                    <br/>
-                                    <br/>
-                                    <br/>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </Table>
-                </div>
-                <div style={{marginLeft: "10%", marginRight: "10%", marginBottom: "10px", marginTop: "20px"}}>
-                    <h3>Comment</h3>
-                </div>
-                <div style={{marginLeft: "10%", marginRight: "10%", marginBottom: "10px"}}>
+                <hr style={{border: "1px #e0e0e0 solid"}}/>
+                <Row>
+                    <Col md={11}>
+                    <h1>
+                        {this.state.data.title}
+                    </h1>
+                    </Col>
+                    <Col>
+                        {
+                            isLoggedIn() ? (
+                                <div>
+                                    <Button variant="contained"
+                                            color="primary"
+                                            size="medium"
+                                            style={{backgroundColor: "green"}}
+                                            onClick={this._handleLikes}>추천</Button>
+                                </div>): ("")
+                        }
+                    </Col>
+                </Row>
+                <hr style={{border: "2px #e0e0e0 solid"}}/>
+                <h6>{this.state.data.writer}</h6>
+                <h6>{this.state.data.date}</h6>
+                <h6>추천수 : {this.state.data.likes}</h6>
+                <h6>조회수 : {this.state.data.views}</h6>
+                <hr style={{border: "2px #e0e0e0 solid"}}/>
+                <ReactQuill value={this.state.data.content} readOnly={true} theme="bubble"/>
+                {/*<div dangerouslySetInnerHTML={{__html: this.state.data.content}}/>*/}
+                <hr style={{border: "1px #e0e0e0 solid"}}/>
+                {/*<br/>*/}
+                <br/>
+                <h2>댓글</h2>
+                <hr style={{border: "1px solid"}}/>
+                <div style={{marginBottom: "10px"}}>
                     {this.state.data ? (this._renderReply()) : ("...loading")}
                 </div>
-                <div style={{marginLeft: "10%", marginRight: "10%", marginBottom: "10px"}}>
+                <hr style={{border: "1px solid"}}/>
+                <div style={{marginBottom: "15px"}}>
                     {isLoggedIn() ? (
                         <InputGroup>
                             <InputGroupAddon>{sessionStorage.getItem('username')}</InputGroupAddon>
                             <Input name="user_reply"
                                    placeholder="댓글을 입력해주세요."
                                    value={this.state.user_reply}
-                                   onChange={this._handleChange}/>
-                        </InputGroup>
-                    ) : ("로그인 후에 Comment를 남길 수 있습니다.")}
-                </div>
-                <div style={{marginLeft: "70%", marginRight: "10%", marginBottom: "10px"}}>
-                    {isLoggedIn() ? (
-                        <div>
-                            <Button variant="contained"
-                                color="primary"
-                                size="large"
-                                style={{marginRight: "20px", backgroundColor: "green"}}
-                                onClick={this._handleLikes}>추천</Button>
+                                   onChange={this._handleChange}
+                                   style={{marginRight: "2%"}}/>
                             <Button variant="contained"
                                     color="primary"
-                                    size="large"
+                                    size="medium"
                                     onClick={this._handleSubmit}>등록</Button>
-                        </div>): ("")}
+                        </InputGroup>
+                    ) : ("로그인 후에 댓글을 남길 수 있습니다.")}
                 </div>
             </div>
         )
     }
 }
-
-export default Article
+export default Article;

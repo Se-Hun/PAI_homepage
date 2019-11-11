@@ -164,10 +164,10 @@ class Register extends Component {
     }
   }
 
-  _debug = (event) => {
-    event.preventDefault()
-    console.log(this.state)
-  }
+  // _debug = (event) => {
+  //   event.preventDefault()
+  //   console.log(this.state)
+  // }
 
   render() {
     const errors = this._validate(this.state.userId,
@@ -303,7 +303,7 @@ class Register extends Component {
                             block
                             disabled={isDisabled}
                             onClick={this._handleRegister}>계정 생성</Button>
-                    <Button onClick={this._debug}>Debug</Button>
+                    {/*<Button onClick={this._debug}>Debug</Button>*/}
                   </Form>
                 </CardBody>
                 {/*<CardFooter className="p-4">*/}

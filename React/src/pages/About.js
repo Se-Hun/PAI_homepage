@@ -114,7 +114,7 @@ class About extends Component {
                 </Col>
                 <div style={{textAlign: "center", marginTop: "100px", marginBottom: "100px", fontWeight: "bold", fontSize: "1.5em"}}>
                     <div>{this.state.currentText ? (
-                        this.state.onEdit ? (<Input type="textarea"  cols="40" rows="5" value={this.state.currentText}
+                        this.state.onEdit ? (<Input type="textarea"  cols="40" rows="15" value={this.state.currentText}
                                                     onChange={this._handleChange}/>) : (this._renderAbout())
                     ) : "loading..."}</div>
                 </div>
