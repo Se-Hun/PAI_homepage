@@ -3,11 +3,11 @@
 
 
 ## 배포를 위한 코드 수정을 해야하는 파일들
-### <flask>
+### Flask
 1. db.py
 2. app.py
 
-### <react>
+### React
 1. components/editor/editor.js
 2. components/BasicArticle.js
 3. components/home/Grid.js
