@@ -48,7 +48,7 @@ class Header extends Component {
             <div className="Header">
                 <Navbar color="white" light expand="md">
                     <NavbarBrand href="/">
-                        <img src={logo} alt="logo" height="90"/>
+                        <img src={logo} alt="logo" height="70"/>
                     </NavbarBrand>
                     <Nav className="ml-auto" navbar>
                         <NavLink href="/about/"><strong style={{fontSize: "1.4vw"}}>동아리 소개</strong></NavLink>
@@ -63,7 +63,7 @@ class Header extends Component {
                         <NavLink href="/Tutorial"><strong style={{fontSize: "1.4vw"}}>인공지능 Tutorial</strong></NavLink>
                     </Nav>
                     <Nav className="px-3" navbar>
-                        <NavLink href="/"><strong style={{fontSize: "1.4vw"}}>활동 사진</strong></NavLink>
+                        <NavLink href="/" disabled><strong style={{fontSize: "1.4vw"}}>활동 사진</strong></NavLink>
                     </Nav>
                     <Nav navbar>
                             {/*<NavItem className="px-3" style={{marginLeft: "30px", marginTop: "10px", fontSize: "18px", fontWeight: "bold", fontColor: "black"}}>*/}

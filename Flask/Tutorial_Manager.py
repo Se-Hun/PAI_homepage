@@ -1,5 +1,6 @@
 from flask_restful import Resource, reqparse
 from datetime import datetime
+import json
 
 from db import db
 
@@ -89,3 +90,20 @@ class getTutorial(Resource):
         result = sorted(result, key=lambda result: (result['_id']))
 
         return {"result": result}
+
+class getTutorialCategory(Resource):
+    def get(self):
+        category = db.Category.find_one()
+        # print(category)
+
+        if category is None:
+            return {"error" : "데이터가 없습니다."}
+
+        result = {
+            "kinds" : category['kinds'],
+            "paperList" : category['paperList']
+        }
+
+        return {"result" : result}
+
+

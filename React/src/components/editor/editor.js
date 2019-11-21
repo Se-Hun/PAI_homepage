@@ -22,6 +22,7 @@ class Editor extends Component {
 	            [{'list': 'ordered'}, {'list': 'bullet'}],
 	            [{ 'align': [] }],
 	            [{ 'color': [] }, { 'background': [] }],
+                ['link', 'image'],
 	            ['clean']
 	        ]
         }
@@ -32,7 +33,8 @@ class Editor extends Component {
             'bold', 'italic', 'underline',
             'list', 'bullet',
             'align',
-            'color', 'background'
+            'color', 'background',
+            'link', 'image'
   	    ];
 
         this.rteChange = this.rteChange.bind(this);
@@ -67,6 +69,15 @@ class Editor extends Component {
         const formData = new FormData()
         const title = this.state.title
         const content = this.state.content
+
+        if(!title) {
+            alert("제목을 입력하세요.")
+            return;
+        }
+        if(!content) {
+            alert("내용을 입력하세요.")
+            return;
+        }
 
         formData.append('username', username)
         formData.append('title', title)
@@ -120,7 +131,7 @@ class Editor extends Component {
         this.setState({
             [name] : value
         })
-        console.log(this.state)
+        // console.log(this.state)
     }
 
     render() {

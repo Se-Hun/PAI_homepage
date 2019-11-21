@@ -9,6 +9,62 @@ import './table.css';
 
 class Tutorial extends Component {
 
+    // state = {
+    //     kinds : "",
+    //     paperList : ""
+    // }
+    //
+    // componentDidMount() {
+    //     this._getCategories()
+    // }
+    //
+    // _getCategories = async() => {
+    //     const categories = await this._callApi()
+    //
+    //     this.setState({
+    //         kinds : categories.result.kinds,
+    //         paperList : categories.result.paperList
+    //     })
+    //
+    // }
+    //
+    // _callApi = () => {
+    //     let url = "http://localhost:5000/user/get/category/tutorial"
+    //     // let url = "http://168.188.128.40:/user/get/category/tutorial"
+    //
+    //     return fetch(url,{
+    //         method: "GET"
+    //     }).then( res => res.json())
+    //         .then(data => {
+    //             // console.log(data)
+    //             return data
+    //             // console.log(data)
+    //         })
+    //         .catch(err=>console.log(err))
+    // }
+    //
+    // _renderCategories = () => {
+    //     const render_categories = this.state.kinds.map((name, idx) => {
+    //         return(
+    //             <div key={idx}>
+    //                 <h3>{name}</h3>
+    //             </div>
+    //         )
+    //     })
+    //     return render_categories
+    // }
+    //
+    // render() {
+    //     return(
+    //         <div>
+    //             <h1>인공지능 Tutorial</h1>
+    //             <div>
+    //                 {this.state.kinds ? this._renderCategories : ("...loading")}
+    //             </div>
+    //         </div>
+    //     )
+    // }
+
     state = {
         tutorial : "",
         currentPage : 0
@@ -181,6 +237,7 @@ class Tutorial extends Component {
              </div>
         );
     }
+
 }
 
 export default Tutorial;

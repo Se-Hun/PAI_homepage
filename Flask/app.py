@@ -40,6 +40,7 @@ api.add_resource(Notice_Manager.getNotice, '/user/get/notice')
 
 api.add_resource(Tutorial_Manager.insertTutorial, '/admin/insert/tutorial')
 api.add_resource(Tutorial_Manager.getTutorial, '/user/get/tutorial')
+api.add_resource(Tutorial_Manager.getTutorialCategory, '/user/get/category/tutorial')
 # api.add_resource(rest_API.insertInfo, '/user/insert/info')
 # api.add_resource(Info_Manager.getInfo, '/user/get/info')
 

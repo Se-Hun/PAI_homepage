@@ -1,18 +1,31 @@
-
 import React, { Component } from 'react';
-// import Pictures from '../components/Pictures';
-// import Grid from '../containers/Grid';
-// import Grid2 from '../containers/Grid2';
+import {Row, Col} from 'reactstrap';
+
+import HomePicture from "../components/home/HomePicture";
+import Grid from '../components/home/Grid';
 
 class Home extends Component {
 
     render() {
         return (
             <div>
-                <div>
+                <div style={{marginTop: "10px", marginBottom: "40px"}}>
+                    <HomePicture/>
                     {/*<Pictures />*/}
                 </div>
-                <div>
+                <div style={{marginBottom: "20px"}}>
+                    <Row>
+                        <Col md={4}>
+                            <Grid board_type="Notice"/>
+                        </Col>
+                        <Col md={4}>
+                            <Grid board_type="FreeBoard"/>
+                        </Col>
+                        <Col md={4}>
+                            <Grid board_type="Tutorial"/>
+                        </Col>
+                    </Row>
+
                     {/*<Grid />*/}
                 </div>
                 <div>
