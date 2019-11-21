@@ -40,7 +40,7 @@ api.add_resource(Notice_Manager.getNotice, '/user/get/notice')
 
 api.add_resource(Tutorial_Manager.insertTutorial, '/admin/insert/tutorial')
 api.add_resource(Tutorial_Manager.getTutorial, '/user/get/tutorial')
-api.add_resource(Tutorial_Manager.getTutorialCategory, '/user/get/category/tutorial')
+# api.add_resource(Tutorial_Manager.getTutorialCategory, '/user/get/category/tutorial')
 # api.add_resource(rest_API.insertInfo, '/user/insert/info')
 # api.add_resource(Info_Manager.getInfo, '/user/get/info')
 
@@ -76,5 +76,5 @@ def hello_world():
 
 if __name__ == '__main__':
     app.secret_key = os.urandom(24)
-    app.run()
-    #app.run(host='0.0.0.0')
+    #app.run()
+    app.run(host='0.0.0.0')

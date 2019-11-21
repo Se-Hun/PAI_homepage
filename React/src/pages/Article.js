@@ -40,7 +40,7 @@ class Article extends Component {
 
     _callApi = () => {
         let url = "http://localhost:5000/get/article"
-        // let url = "http://168.188.128.40:/get/article"
+        // let url = "http://168.188.128.40:5202/get/article"
 
         const formData = new FormData()
         formData.append('board_type', this.props.location.state.board_type)
@@ -89,7 +89,7 @@ class Article extends Component {
 
     _callSubmit = () => {
         let url = "http://localhost:5000/submit/reply"
-        // let url = "http://168.188.128.40:/submit/reply"
+        // let url = "http://168.188.128.40:5202/submit/reply"
 
         const formData = new FormData()
         formData.append('name', sessionStorage.getItem('username'))
@@ -126,7 +126,7 @@ class Article extends Component {
 
     _callLikes = () => {
         let url = "http://localhost:5000/plus/likes"
-        // let url = "http://168.188.128.40:/plus/likes"
+        // let url = "http://168.188.128.40:5202/plus/likes"
 
         const formData = new FormData()
         formData.append('board_type', this.props.location.state.board_type)

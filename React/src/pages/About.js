@@ -17,7 +17,7 @@ class About extends Component {
 
      _callApi = () => {
         let url = "http://localhost:5000/about"
-        // let url = "http://168.188.128.40:/user/get/about"
+        // let url = "http://168.188.128.40:5202/about"
 
         return fetch(url,{
             method: "GET"
@@ -42,6 +42,7 @@ class About extends Component {
          e.preventDefault();
 
          let url = "http://localhost:5000/about/admin/update"
+         // let url = "http://168.188.128.40:5202/about/admin/update"
          let formData  = new FormData()
 
           // this.setState({

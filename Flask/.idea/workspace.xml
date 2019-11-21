@@ -2,14 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b8368347-fbcb-41e9-a0f7-647df7455485" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../React/src/components/home/HomePicture.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tutorial_Manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tutorial_Manager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/components/Layout/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/components/Layout/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/components/BasicArticle.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/components/BasicArticle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../React/src/components/editor/editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/components/editor/editor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/components/home/Carousel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../React/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/pages/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/components/home/Grid.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/components/home/Grid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/pages/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/pages/About.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/pages/Article.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/pages/Article.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/pages/FreeBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/pages/FreeBoard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/pages/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/pages/Login/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/pages/Notice.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/pages/Notice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../React/src/pages/Register/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/pages/Register/Register.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../React/src/pages/Tutorial.js" beforeDir="false" afterPath="$PROJECT_DIR$/../React/src/pages/Tutorial.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -143,7 +147,7 @@
       <workItem from="1573222221037" duration="4119000" />
       <workItem from="1573301790375" duration="808000" />
       <workItem from="1573316484763" duration="7057000" />
-      <workItem from="1574322105353" duration="2403000" />
+      <workItem from="1574322105353" duration="5927000" />
     </task>
     <servers />
   </component>

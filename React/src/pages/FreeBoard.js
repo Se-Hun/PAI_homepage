@@ -21,7 +21,7 @@ class FreeBoard extends Component {
 
     _callApi = () => {
         let url = "http://localhost:5000/user/get/freeboard"
-        // let url = "http://168.188.128.40:/user/get/freeboard"
+        // let url = "http://168.188.128.40:5202/user/get/freeboard"
 
         return fetch(url,{
             method: "GET"

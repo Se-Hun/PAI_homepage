@@ -88,7 +88,7 @@ class Register extends Component {
     })
 
     let url = "http://localhost:5000/register"
-    // let url = "http://168.188.128.40:5402/register" // 연구실 서버임 => 잠깐만 이렇게 해두자!
+    // let url = "http://168.188.128.40:5202/register" // 연구실 서버임 => 잠깐만 이렇게 해두자!
     let formData  = new FormData() // dictionary 같은 역활을 하는 객체임. 하지만 보안상으로 정말 좋음!
     let data = this.state
     for(let name in data) {

@@ -22,7 +22,7 @@ class Notice extends Component {
 
     _callApi = () => {
         let url = "http://localhost:5000/user/get/notice"
-        // let url = "http://168.188.128.40:/user/get/notice"
+        // let url = "http://168.188.128.40:5202/user/get/notice"
 
         return fetch(url,{
             method: "GET"

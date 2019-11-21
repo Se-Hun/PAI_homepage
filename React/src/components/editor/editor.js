@@ -55,13 +55,13 @@ class Editor extends Component {
         // console.log(this.state.content)
 
         let notice_url = "http://localhost:5000/admin/insert/notice"
-        // let notice_url = "http://168.188.128.40:/admin/insert/notice"
+        // let notice_url = "http://168.188.128.40:5202/admin/insert/notice"
 
         let freeboard_url = "http://localhost:5000/user/insert/freeboard"
-        // let freeboard_url = "http://168.188.128.40:/user/insert/freeboard"
+        // let freeboard_url = "http://168.188.128.40:5202/user/insert/freeboard"
 
         let tutorial_url = "http://localhost:5000/admin/insert/tutorial"
-        // let tutorial_url = "http://168.188.128.40:/admin/insert/tutorial"
+        // let tutorial_url = "http://168.188.128.40:5202/admin/insert/tutorial"
 
         const username = sessionStorage.getItem('username')
         const role = sessionStorage.getItem('role')

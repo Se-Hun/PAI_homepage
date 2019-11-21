@@ -4,11 +4,11 @@ import PreViewArticle from "./PreViewArticle";
 
 const API_list = {
     "Notice" : "http://localhost:5000/user/get/notice",
-    // "Notice" : "http://168.188.128.40:/user/get/notice",
+    // "Notice" : "http://168.188.128.40:5202/user/get/notice",
     "FreeBoard" : "http://localhost:5000/user/get/freeboard",
-    // "FreeBoard" : "http://168.188.128.40:/user/get/freeboard",
+    // "FreeBoard" : "http://168.188.128.40:5202/user/get/freeboard",
     "Tutorial" : "http://localhost:5000/user/get/tutorial",
-    // "Tutorial" : "http://168.188.128.40:/user/get/tutorial",
+    // "Tutorial" : "http://168.188.128.40:5202/user/get/tutorial",
 }
 
 const Board_name_converter = {

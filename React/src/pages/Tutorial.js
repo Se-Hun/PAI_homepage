@@ -30,7 +30,7 @@ class Tutorial extends Component {
     //
     // _callApi = () => {
     //     let url = "http://localhost:5000/user/get/category/tutorial"
-    //     // let url = "http://168.188.128.40:/user/get/category/tutorial"
+    //     // let url = "http://168.188.128.40:5202/user/get/category/tutorial"
     //
     //     return fetch(url,{
     //         method: "GET"
@@ -77,7 +77,7 @@ class Tutorial extends Component {
 
     _callApi = () => {
         let url = "http://localhost:5000/user/get/tutorial"
-        // let url = "http://168.188.128.40:/user/get/tutorial"
+        // let url = "http://168.188.128.40:5202/user/get/tutorial"
 
         return fetch(url,{
             method: "GET"
